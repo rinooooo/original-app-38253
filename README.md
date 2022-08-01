@@ -22,3 +22,80 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+# テーブル設計
+
+## users テーブル
+
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| group_name         | string | null: false               |
+| encrypted_password | string | null: false               |
+
+### Association
+
+- has_many :restaurants
+- has_many :comments
+
+
+
+## restaurants テーブル
+
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| shop_name          | string     | null: false                    |
+| address            | string     |                                |
+| category_id        | integer    | null: false                    |
+| phone_number       | integer    |                                |
+| url                | string     | null: false, unique: true      |
+| user               | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- has_many   :comments
+- has_many   :restaurant_tags
+- has_many   :tags, through restaurant_tags
+
+
+
+## comments テーブル
+
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| nickname           | string     | null: false                    |
+| comment            | string     | null: false                    |
+| restaurant         | references | null: false, foreign_key: true |
+| user               | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :restaurant
+
+
+
+## tags テーブル
+
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| tag_name           | string     | null: false                    |
+
+### Association
+- has_many   :restaurant_tags
+- has_many   :restaurants, through restaurant_tags
+
+
+
+## restaurant_tags テーブル
+
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| restaurant   | references | null: false, foreign_key: true |
+| tag          | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :restaurant
+- belongs_to :tag
