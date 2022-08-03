@@ -6,6 +6,8 @@ header {
 }
 .title-image {
   position: relative;
+  height: 262px;
+  margin-left: 30px;
 }
 .devise {
   position: absolute;
@@ -21,6 +23,13 @@ header {
   color: white;
   text-decoration: none;
   border-radius: 30px;
+}
+.user-name {
+  display: inline-block;
+  line-height: 40px;
+  padding: 2px 20px;
+  margin-right: 15px;
+  color: black;
 }
 
 
