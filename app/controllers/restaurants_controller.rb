@@ -2,6 +2,8 @@ class RestaurantsController < ApplicationController
   before_action :authenticate_user!, expect: [:index]
 
   def index
+    @restaurants = Restaurant.includes(:user)
+    @tags = Tag.includes(:restaurants)
   end
 
   def new

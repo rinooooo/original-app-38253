@@ -19,11 +19,9 @@
         <div class="find">探す</div>
         <div class="tag-list">
           <div class="tag">全て</div>
-          <div class="tag">横浜駅</div>
-          <div class="tag">品川駅</div>
-          <div class="tag">東京駅</div>
-          <div class="tag">代官山駅</div>
-          <div class="tag">中目黒駅</div>
+          <% @tags.each do |tag| %>
+            <div class="tag"><%= tag.tag_name %></div>
+          <% end %>
         </div>
       <%#!--タグ一覧表示(タグ名押すとそのタグがついた店がrestaurant-infosで一覧表示)--%>
       </div>
@@ -80,10 +78,11 @@
       <%#!--# 登録店一覧表示、タグが押されたとき、全てが押されたときで条件分け --%>
       <div class="restaurants">
         <div class="restaurant-lists">
+        <% @restaurants.each do |restaurant| %>
           <div class="restaurant">
             <%= link_to image_tag("hero.jpg", class:"restaurant-image"), "#" %>
-            <p class="restaurant-name">店名</p>
-            <p class="restaurant-genre">ジャンル</p> 
+            <p class="restaurant-name"><%= restaurant.shop_name %></p>
+            <p class="restaurant-genre"><%= restaurant.category.name %></p> 
             <%= link_to image_tag("checkbox.png", class:"restaurant-checkbox"), "#" %>
             <div class="restaurant-info">
               <div class="btns">
@@ -102,7 +101,7 @@
               </div>
             </div>
           </div>
-
+        <% end %>
               
         </div>
       </div>
