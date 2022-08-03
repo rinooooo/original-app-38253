@@ -1,37 +1,37 @@
 <header>
-  <%= link_to image_tag("header-image.png", class:"title-image"), "#" %>
+  <%= link_to image_tag("header-image.png", class:"title-image"), root_path %>
   <div class="devise">
-    <a href="" class="singin">新規登録</a>
-    <a href="" class="login">ログイン</a>
-  <%#--ログイン状態の場合--%>
-    <%#a href="" class="lonin">こんにちは<br>nameさんさん</a--%>
-                                        <!--↑ユーザー編集へ-->
-    <%#!--a href="" class="lonin">ログアウト</a--%>
+    <% if user_signed_in? %>
+      <%= link_to "#{current_user.group_name}さん", root_path, class:"user-name" %>
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
+    <% else %>
+      <%= link_to "新規登録", new_user_registration_path, class:"signin" %>
+      <%= link_to "ログイン", new_user_session_path, class:"login" %>
+    <% end %>
   </div>
 </header>
 
-<div class="contents row">
+<div class="wrapper">
   <div class="container">
-    <h2>Sign up</h2>
-    <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+  <div class="form">
+    <h2>Log in</h2>
+    <%= form_with model: @user, url: user_session_path, id: 'login_user', class: 'login_user', local: true do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="field">
-        <%= f.label :name %><br />
-        <%= f.text_field :group_name, autofocus: true %>
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "30" %>
       </div>
 
       <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "off", size: "30" %>
       </div>
 
       <div class="actions">
-        <%= f.submit "Sign up" %>
+        <%= f.submit "Log in" %>
       </div>
     <% end %>
+  </div>
   </div>
 </div>
