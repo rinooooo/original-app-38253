@@ -5,12 +5,13 @@ class RestaurantsController < ApplicationController
   end
 
   def new
-    @restaurant = Restaurant.new
+    @restaurant_form = RestaurantForm.new
   end
 
   def create
-    @restaurant = Restaurant.new(restaurant_params)
-    if @restaurant.save
+    @restaurant_form = RestaurantForm.new(restaurant_form_params)
+    if @restaurant_form.valid?
+      @restaurant_form.save
       redirect_to root_path
     else
       render :new
@@ -18,8 +19,8 @@ class RestaurantsController < ApplicationController
   end
 
   private
-  def restaurant_params
-    params.require(:restaurant).permit(:shop_name, :address, :category_id, :phone_number, :url, :image).merge(user_id: current_user.id)
+  def restaurant_form_params
+    params.require(:restaurant_form).permit(:shop_name, :address, :category_id, :phone_number, :url, :image).merge(user_id: current_user.id)
   end
 end
 
