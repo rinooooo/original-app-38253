@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :group_name, presence: true
-  
+
   has_many :restaurants
 end
