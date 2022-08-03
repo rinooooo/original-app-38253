@@ -1,0 +1,112 @@
+<header>
+  <%= link_to image_tag("header-image.png", class:"title-image"), "#" %>
+  <div class="devise">
+    <a href="" class="singin">新規登録</a>
+    <a href="" class="login">ログイン</a>
+  <%#--ログイン状態の場合--%>
+    <%#a href="" class="lonin">こんにちは<br>nameさんさん</a--%>
+                                        <!--↑ユーザー編集へ-->
+    <%#!--a href="" class="lonin">ログアウト</a--%>
+  </div>
+</header>
+    
+<div class="wrapper">
+  <div class="main-wrapper">
+    <div class="side-bar">
+      <div class="new">記録する</div>
+      <div class="tags">
+        <div class="find">探す</div>
+        <div class="tag-list">
+          <div class="tag">全て</div>
+          <div class="tag">横浜駅</div>
+          <div class="tag">品川駅</div>
+          <div class="tag">東京駅</div>
+          <div class="tag">代官山駅</div>
+          <div class="tag">中目黒駅</div>
+        </div>
+      <%#!--タグ一覧表示(タグ名押すとそのタグがついた店がrestaurant-infosで一覧表示)--%>
+      </div>
+    </div>
+
+  <%#!--ノーマルでは全ての登録店が表示 %>
+    <div class="main">
+      <div class="map">
+        <%#!--# googleマップでクリックしたピンの店情報が出る（店一覧と同じボックスで） --%>
+        <div class="google-map"></div>
+        <div class="restaurant">
+          <%= link_to image_tag("hero.jpg", class:"restaurant-image"), "#" %>
+          <p class="restaurant-name">店名</p>
+          <p class="restaurant-genre">ジャンル</p> 
+          <%= link_to image_tag("checkbox.png", class:"restaurant-checkbox"), "#" %>
+          <div class="restaurant-info">
+            <div class="btns">
+              <div class="btn">
+                <%= link_to image_tag("went.png", class:"went"), "#" %>
+                <p class="count">5</p>
+              </div>
+              <div class="btn">
+                <%= link_to image_tag("want-go.png", class:"want-go"), "#" %>
+                <p class="count">3</p>
+              </div>
+            </div>
+            <div class="evaluation">
+              <div class="star">星評価</div>
+              <a href="#" class="comment">コメント</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="upper">
+        <div class="search">
+          <input type="search" name="search" placeholder="店名を入力">
+          <input type="submit" name="submit" value="検索">
+        </div>
+        <div class="genre">
+          <select name="genre">
+            <option>選択肢のサンプル1</option>
+            <option>選択肢のサンプル2</option>
+            <option>選択肢のサンプル3</option>
+          </select>
+        </div>
+        <div class="links">
+          <a href="" class="line">Line</a>
+          <a href="" class="tabelog">食べログ</a>
+          <a href="" class="delete">削除</a>
+        </div>
+      </div>
+              
+      <%#!--# 登録店一覧表示、タグが押されたとき、全てが押されたときで条件分け --%>
+      <div class="restaurants">
+        <div class="restaurant-lists">
+          <div class="restaurant">
+            <%= link_to image_tag("hero.jpg", class:"restaurant-image"), "#" %>
+            <p class="restaurant-name">店名</p>
+            <p class="restaurant-genre">ジャンル</p> 
+            <%= link_to image_tag("checkbox.png", class:"restaurant-checkbox"), "#" %>
+            <div class="restaurant-info">
+              <div class="btns">
+                <div class="btn">
+                  <%= link_to image_tag("went.png", class:"went"), "#" %>
+                  <p class="count">5</p>
+                </div>
+                <div class="btn">
+                  <%= link_to image_tag("want-go.png", class:"want-go"), "#" %>
+                  <p class="count">3</p>
+                </div>
+              </div>
+              <div class="evaluation">
+                <div class="star">星評価</div>
+                <a href="#" class="comment">コメント</a>
+              </div>
+            </div>
+          </div>
+
+              
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
