@@ -1,0 +1,16 @@
+.container {
+  width: 300px;
+  background-color: white;
+  padding: 30px 70px;
+  margin-left: 500px;
+}
+.form {
+  width: 280px;
+}
+.field {
+  margin-bottom: 30px;
+}
+.actions {
+  margin-left: 90px;
+  margin-bottom: 30px;
+}
