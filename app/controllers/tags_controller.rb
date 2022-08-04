@@ -23,6 +23,8 @@ class TagsController < ApplicationController
 
   private
   def create_searching_object
+    @tag = Tag.find(params[:id])
+    @tag_restaurants = @tag.restaurants
     @p = Restaurant.ransack(params[:q]) 
   end
 
