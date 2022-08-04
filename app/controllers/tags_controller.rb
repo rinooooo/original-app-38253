@@ -1,5 +1,7 @@
 class TagsController < ApplicationController
   before_action :authenticate_user!, expect: [:index]
+  before_action :create_searching_object, only: [:show, :search, :search_category]
+
 
   def show
     @tags = Tag.includes(:restaurants)
@@ -13,4 +15,15 @@ class TagsController < ApplicationController
     @restaurants = @tag_restaurants.search(params[:keyword])
     @tags = Tag.includes(:restaurants)
   end
+
+  def search_category
+    @restaurants = @p.result
+    @tags = Tag.includes(:restaurants)
+  end
+
+  private
+  def create_searching_object
+    @p = Restaurant.ransack(params[:q]) 
+  end
+
 end

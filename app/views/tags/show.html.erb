@@ -62,11 +62,10 @@
           <%= form.submit "検索", class: "search-btn" %>
         <% end %>
         <div class="genre">
-          <select name="genre">
-            <option>選択肢のサンプル1</option>
-            <option>選択肢のサンプル2</option>
-            <option>選択肢のサンプル3</option>
-          </select>
+          <%= search_form_for @p, url: restaurants_searchcategory_path do |f| %>
+            <%= f.collection_select :category_id_eq, Category.all, :id, :name, {}, {class:"select-box", id:"shop-category"} %>
+            <%= f.submit '検索' %>
+          <% end %>
         </div>
         <div class="links">
           <a href="" class="line">Line</a>

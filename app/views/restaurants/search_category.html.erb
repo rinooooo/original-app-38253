@@ -74,6 +74,7 @@
               
       <div class="restaurants">
         <div class="restaurant-lists">
+        <% if @restaurants.length != 0 %>
         <% @restaurants.each do |restaurant| %>
           <div class="restaurant">
             <%= link_to image_tag("hero.jpg", class:"restaurant-image"), "#" %>
@@ -98,6 +99,8 @@
             </div>
           </div>
         <% end %>
+        <% end %>
+              
         </div>
       </div>
     </div>
