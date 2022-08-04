@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get '/restaurants/searchcategory',  to: 'restaurants#search_category'
 
-  resources :restaurants, only: [:index, :new, :create] do
+  resources :restaurants, only: [:index, :new, :create, :edit, :update] do
     collection do
       get 'search'
     end

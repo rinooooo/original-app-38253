@@ -1,5 +1,5 @@
 class TagsController < ApplicationController
-  before_action :authenticate_user!, expect: [:index]
+  before_action :authenticate_user!, expect: [:show]
   before_action :create_searching_object, only: [:show, :search, :search_category]
 
 
