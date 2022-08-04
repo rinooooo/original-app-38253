@@ -20,6 +20,11 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  def search
+    @restaurants = Restaurant.search(params[:keyword])
+    @tags = Tag.includes(:restaurants)
+  end
+
   private
   def restaurant_form_params
     params.require(:restaurant_form).permit(:shop_name, :address, :category_id, :phone_number, :url, :image, :tag_name).merge(user_id: current_user.id)

@@ -57,10 +57,10 @@
       </div>
     
       <div class="upper">
-        <div class="search">
-          <input type="search" name="search" placeholder="店名を入力">
-          <input type="submit" name="submit" value="検索">
-        </div>
+        <%= form_with(url: search_tag_path(@tag.id), local: true, method: :get, class: "search-form") do |form| %>
+          <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+          <%= form.submit "検索", class: "search-btn" %>
+        <% end %>
         <div class="genre">
           <select name="genre">
             <option>選択肢のサンプル1</option>

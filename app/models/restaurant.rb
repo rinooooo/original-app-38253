@@ -4,6 +4,14 @@ class Restaurant < ApplicationRecord
   has_many   :restaurant_tags
   has_many   :tags, through: :restaurant_tags
 
+  def self.search(search)
+    if search != ""
+      Restaurant.where('restaurants.shop_name LIKE(?)', "%#{search}%")
+    else
+      Restaurant.all
+    end
+  end
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
 
