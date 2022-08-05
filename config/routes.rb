@@ -13,5 +13,8 @@ Rails.application.routes.draw do
     member do
       get 'search'
     end
+    member do
+      get 'searchcategory'
+    end
   end
 end

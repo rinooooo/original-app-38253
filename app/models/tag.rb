@@ -10,4 +10,5 @@ class Tag < ApplicationRecord
       @tag.restaurants
     end
   end
+  
 end
