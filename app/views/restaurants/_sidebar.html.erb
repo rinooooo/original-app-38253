@@ -2,7 +2,13 @@
   <%= link_to "記録する", new_restaurant_path, class:"new" %>
   <div class="tags">
     <div class="find">探す</div>
+    <div class="find">店名から探す</div>
+    <%= form_with(url: search_restaurants_path, local: true, method: :get, class: "search-form") do |form| %>
+          <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+          <%= form.submit "検索", class: "search-btn" %>
+        <% end %>
     <div class="tag-list">
+    <div class="find">駅名から探す</div>
       <div class="tag"><%= link_to '全て', root_path, class:"all_restaurant" %></div>
       <% tags.each do |tag| %>
         <div class="tag"><%= link_to tag.tag_name, tag_path(tag.id), class:"tag_restaurant" %></div>

@@ -1,7 +1,25 @@
 <div class="wrapper">
   <div class="main-wrapper">
     <%= render partial: "restaurants/sidebar", locals: { tags: @tags } %>
-    <%= render partial: "main", locals: { p: @p, restaurants: @restaurants, tag: @tag } %>
+    <div class="main">
+
+      <%= render partial: "restaurants/map" %>
+    
+      <div class="upper">
+        <div class="genre">
+          <%#= search_form_for @p, url: restaurants_searchcategory_path do |f| %>
+            <%#= f.collection_select :category_id_eq, Category.all, :id, :name, {}, {class:"select-box", id:"shop-category"} %>
+            <%#= f.submit '検索' %>
+          <%# end %>
+        </div>
+        <div class="links">
+          <a href="" class="line">Line</a>
+        </div>
+      </div>
+              
+      <%= render partial: "restaurants/restaurant", locals: { restaurants: @restaurants } %>
+
+    </div>
   </div>
 </div>
 

@@ -8,11 +8,4 @@ class TagsController < ApplicationController
     @restaurants = @tag.restaurants
   end
 
-  def search
-    @tag = Tag.find(params[:id])
-    @tag_restaurants = @tag.restaurants
-    @restaurants = @tag_restaurants.search(params[:keyword])
-    @tags = Tag.includes(:restaurants)
-  end
-
 end

@@ -1,0 +1,27 @@
+<div class="map">
+        <%#!--# googleマップでクリックしたピンの店情報が出る（店一覧と同じボックスで） --%>
+        <div class="google-map"></div>
+        <div class="restaurant">
+          <%= link_to image_tag("hero.jpg", class:"restaurant-image"), "#" %>
+          <p class="restaurant-name">店名</p>
+          <p class="restaurant-genre">ジャンル</p> 
+          <%= link_to image_tag("checkbox.png", class:"restaurant-checkbox"), "#" %>
+          <div class="restaurant-info">
+            <div class="btns">
+              <div class="btn">
+                <%= link_to image_tag("went.png", class:"went"), "#" %>
+                <p class="count">5</p>
+              </div>
+              <div class="btn">
+                <%= link_to image_tag("want-go.png", class:"want-go"), "#" %>
+                <p class="count">3</p>
+              </div>
+            </div>
+            <div class="evaluation">
+              <div class="star">星評価</div>
+              <a href="#" class="comment">コメント</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
