@@ -1,0 +1,12 @@
+<div class="side-bar">
+  <%= link_to "記録する", new_restaurant_path, class:"new" %>
+  <div class="tags">
+    <div class="find">探す</div>
+    <div class="tag-list">
+      <div class="tag"><%= link_to '全て', root_path, class:"all_restaurant" %></div>
+      <% tags.each do |tag| %>
+        <div class="tag"><%= link_to tag.tag_name, tag_path(tag.id), class:"tag_restaurant" %></div>
+      <% end %>
+    </div>
+  </div>
+</div>
