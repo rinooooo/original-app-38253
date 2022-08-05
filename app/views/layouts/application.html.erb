@@ -11,14 +11,16 @@
 
   <body>
     <header>
-      <%= link_to image_tag("header-image.png", class:"title-image"), root_path %>
-      <div class="devise">
+      <div class="header-left">
+        <%= link_to image_tag("header-image.png"), root_path %>
+      </div>
+      <div class="header-right">
         <% if user_signed_in? %>
-          <%= link_to "#{current_user.group_name}さん", edit_user_registration_path, class:"user-name" %>
-          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
+          <%= link_to "#{current_user.group_name}さん", edit_user_registration_path %>
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
         <% else %>
-          <%= link_to "新規登録", new_user_registration_path, class:"signin" %>
-          <%= link_to "ログイン", new_user_session_path, class:"login" %>
+          <%= link_to "新規登録", new_user_registration_path %>
+          <%= link_to "ログイン", new_user_session_path %>
         <% end %>
       </div>
     </header>

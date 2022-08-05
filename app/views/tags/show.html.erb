@@ -1,20 +1,23 @@
 <div class="wrapper">
   <div class="main-wrapper">
-    <%= render partial: "restaurants/sidebar", locals: { tags: @tags } %>
+    <%= render partial: "restaurants/sidebar", locals: { tags: @tags, restaurant_all: @restaurant_all } %>
     <div class="main">
 
       <%= render partial: "restaurants/map" %>
     
-      <div class="upper">
-        <div class="genre">
+      <div class="middle">
+        <div class="categoly-search-form">
           <%#= search_form_for @p, url: restaurants_searchcategory_path do |f| %>
             <%#= f.collection_select :category_id_eq, Category.all, :id, :name, {}, {class:"select-box", id:"shop-category"} %>
             <%#= f.submit '検索' %>
           <%# end %>
         </div>
-        <div class="links">
-          <a href="" class="line">Line</a>
+        <div class="line">
+          <a href="#">Line</a>
         </div>
+        <% if @tag.restaurants.length == 0 %>
+          <%= link_to 'destroy', tag_path(@tag.id), method: :delete, class: "tag-destroy" %>
+        <% end %>
       </div>
               
       <%= render partial: "restaurants/restaurant", locals: { restaurants: @restaurants } %>
@@ -22,5 +25,6 @@
     </div>
   </div>
 </div>
+
 
 

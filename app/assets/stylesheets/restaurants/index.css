@@ -1,22 +1,20 @@
-
+/* ヘッダー */
 
 header {
-  display: block;
-  height: 262px;
+  height: 260px;
   width: 100%;
   background-color: #EEEBEB;
 }
-.title-image {
-  position: relative;
-  height: 262px;
-  margin-left: 30px;
+.header-left {
+  display: inline-block;
+  height: 260px;
+  margin-left: 50px;
 }
-.devise {
-  position: absolute;
-  top: 100px;
-  left: 1050px;
+.header-right {
+  display: inline-block;
+  padding-bottom: 50px;
 }
-.devise a {
+.header-right a {
   display: inline-block;
   background-color: #FFAD32;
   line-height: 40px;
@@ -24,16 +22,11 @@ header {
   margin-right: 15px;
   color: white;
   text-decoration: none;
-  border-radius: 30px;
-}
-.user-name {
-  display: inline-block;
-  line-height: 40px;
-  padding: 2px 20px;
-  margin-right: 15px;
-  color: black;
+  border-radius: 15px;
 }
 
+
+/* wrapper */
 
 .wrapper {
   width: 100%;
@@ -42,127 +35,115 @@ header {
   padding-bottom: 120px;
 }
 .main-wrapper {
-  height: 100%;
-  width: 100%;
   padding: 0 120px;
   display: flex;
 }
 
-.side-bar {
-  width: 181px;
-  height: 1600px;
-  padding: 34px 0 0 18px;
+
+
+
+/* sidebar */
+
+.sidebar {
+  width: 250px;
+  padding-top: 35px;
 }
-.new {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
+.sidebar h1 {
   font-size: 30px;
-  line-height: 36px;
-  margin-bottom: 29px;
 }
-.find {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 30px;
-  line-height: 36px;
-  margin-bottom: 14px;
+.sidebar h2 {
+  font-size: 20px;
 }
-.tag-list {
-  padding-left: 20px;
+.reftaurant-search {
+  margin-top: 20px;
+}
+.search-from-name {
+  margin-left: 20px;
+}
+.search-from-station {
+  margin-left: 20px;
+  margin-top: 15px;
+}
+.station-list {
+  margin-left: 50px
 }
 .tag {
-  font-family: 'Inter';
-  margin-bottom: 29px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 18px;
+  margin: 5px 0 10px 0;
 }
 
 
+/* main */
 
-.main {
-  width: calc(100% - 421px);
-  height: 1600px;
-}
-
+/* map */
 .map {
-  width: 900px;
-  height: 479px;
+  width: 850px;
+  height: 450px;
   background-color: #FFFFFF;
   opacity: 70%;
   position: relative;
-  padding: 0 32px;
+  padding: 0 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .google-map {
-  width: 548px;
-  height: 412px;
+  width: 500px;
+  height: 400px;
   background: rgba(198, 245, 186, 0.76);
 }
-.restaurant {
-  width: 311px;
-  height: 380px;
-  border-radius: 30px;
-  background-color: #FFFFFF;
-  opacity: 70%;
-  position: relative;
-}
 
-
-.upper {
+/* middle */
+.middle {
   width: 100%;
-  height: 77px;
+  height: 80px;
   display: flex;
   align-items: center;
 }
-.search {
-  margin-right: 23px;
+.select-box {
+  width: 150px;
+  height: 30px;
 }
-.genre {
-  margin-right: 30px;
+.line {
+  padding-left: 30px;
 }
-.links {
-  padding: 0 35px;
-}
-.links img {
-  height: 40px;
+.line a {
+  display: inline-block;
+  background-color: greenyellow;
+  line-height: 40px;
+  padding: 2px 20px;
+  text-decoration: none;
+  border-radius: 15px;
 }
 
-
-.restaurants {
-  width: 100%;
-  height: calc(100% - 556px);
-}
-.restaurant-lists {
+/* restaurant */
+.restaurant-list {
   display: flex;
   flex-wrap: wrap;
   gap: 16px 16px;
 }
-.restaurant-image {
-  width: 311px;
-  height: 206px;
-  border-radius: 30px 30px 0 0;
+.restaurant-content {
+  width: 300px;
+  height: 380px;
+  border-radius: 20px;
+  background-color: #FFFFFF;
+  opacity: 80%;
+  position: relative;
 }
-.restaurant-name {
+.restaurant-image {
+  text-align: center;
+  margin-top: 50px;
+}
+.white-img {
+  height: 200px;
+  width: 300px;
+}
+.overlay-restaurant-image {
   position: absolute;
   top: 0px;
   left: 15px;
-  margin: 0 0 0 0;
-  height: 100px;
-  font-size: 40px;
 }
-.restaurant-genre {
-  position: absolute;
-  top: 55px;
-  left: 15px;
-  margin: 0 0 0 0;
-  height: 100px;
-  font-size: 20px;
+.restaurant-name {
+  font-size: 35px;
 }
 .restaurant-checkbox {
   width: 30px;
@@ -170,11 +151,7 @@ header {
   top: 10px;
   right: 10px;
 }
-.restaurant-info {
-  width: 311px;
-  height: calc(100% - 206px);
-  padding: 15px;
-}
+.info-area
 .btns {
   width: 311px;
   display: flex;
@@ -191,13 +168,8 @@ header {
   line-height: 40px;
 }
 .evaluation {
-  margin-top: 20px;
-  height: 86px;
+  background-color: aquamarine;
+  height: 60px;
   width: 100%;
   display: flex;
-}
-.comment {
-  line-height: 70px;
-  margin: 0 0 0 20px;
-  font-size: 18px;
 }

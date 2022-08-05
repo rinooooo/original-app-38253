@@ -1,0 +1,17 @@
+<div class="main">
+  <%= render partial: "map" %>
+    
+  <div class="middle">
+    <div class="categoly-search-form">
+      <%= search_form_for p, url: restaurants_searchcategory_path do |f| %>
+        <%= f.collection_select :category_id_eq, Category.all, :id, :name, {}, {class:"select-box", id:"shop-category"} %>
+        <%= f.submit '絞り込み' %>
+      <% end %>
+    </div>
+    <div class="line">
+      <a href="#">Line</a>
+    </div>
+  </div>
+              
+  <%= render partial: "restaurant", locals: { restaurants: @restaurants } %>
+</div>

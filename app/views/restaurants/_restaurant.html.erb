@@ -1,31 +1,38 @@
 <div class="restaurants">
-        <div class="restaurant-lists">
-        <% restaurants.each do |restaurant| %>
-          <div class="restaurant">
-            <%= link_to image_tag("hero.jpg", class:"restaurant-image"), "#" %>
+  <div class="restaurant-list">
+    <% restaurants.each do |restaurant| %>
+      <div class="restaurant-content">
+        <div class="image-area">
+          <div class="restaurant-image">
+            <% if restaurant.image.attached? %>
+              <%= link_to image_tag restaurant.image.variant(resize: '200x300') if restaurant.image.attached? %>
+            <% else %>
+              <%= link_to image_tag("white.jpg", class: "white-img") %>
+            <% end %>
+          </div>
+          <div class="overlay-restaurant-image">
             <p class="restaurant-name"><%= restaurant.shop_name %></p>
-            <p class="restaurant-genre"><%= restaurant.category.name %></p> 
-            <%= link_to image_tag("checkbox.png", class:"restaurant-checkbox"), "#" %>
-            <div class="restaurant-info">
-              <div class="btns">
-                <div class="btn">
-                  <%= link_to image_tag("went.png", class:"went"), "#" %>
-                  <p class="count">5</p>
-                </div>
-                <div class="btn">
-                  <%= link_to image_tag("want-go.png", class:"want-go"), "#" %>
-                  <p class="count">3</p>
-                </div>
-              </div>
-              <div class="evaluation">
-                <div class="star">星評価</div>
-                <%= link_to 'edit', edit_restaurant_path(restaurant.id), class: "edit" %>
-                <%= link_to 'destroy', restaurant_path(restaurant.id), method: :delete, class: "edit" %>
-                <a href="#" class="comment">コメント</a>
-              </div>
+            <p class="restaurant-category"><%= restaurant.category.name %></p> 
+          </div>
+          <%= link_to image_tag("checkbox.png", class:"restaurant-checkbox"), "#" %>
+        </div>
+        <div class="info-area">
+          <div class="btns">
+            <div class="btn">
+              <%= link_to image_tag("went.png") %>
+              <p class="count">5</p>
+            </div>
+            <div class="btn">
+              <%= link_to image_tag("want-go.png") %>
+              <p class="count">3</p>
             </div>
           </div>
-        <% end %>
+          <div class="evaluation">
+            <div class="star">星評価</div>
+            <div>5</div>
+          </div>
         </div>
       </div>
-      
+    <% end %>
+  </div>
+</div>
