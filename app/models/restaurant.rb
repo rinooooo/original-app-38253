@@ -1,8 +1,8 @@
 class Restaurant < ApplicationRecord
   belongs_to :user
   has_one_attached :image
-  has_many   :restaurant_tags
-  has_many   :tags, through: :restaurant_tags
+  has_many   :restaurant_tags, dependent: :destroy
+  has_many   :tags, through: :restaurant_tags, dependent: :destroy
 
   def self.search(search)
     if search != ""

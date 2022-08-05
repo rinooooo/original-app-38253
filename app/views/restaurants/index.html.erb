@@ -94,6 +94,7 @@
               <div class="evaluation">
                 <div class="star">星評価</div>
                 <%= link_to 'edit', edit_restaurant_path(restaurant.id), class: "edit" %>
+                <%= link_to 'destroy', restaurant_path(restaurant.id), method: :delete, class: "edit" %>
                 <a href="#" class="comment">コメント</a>
               </div>
             </div>
