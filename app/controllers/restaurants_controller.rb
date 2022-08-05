@@ -5,6 +5,7 @@ class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.includes(:user)
     @tags = Tag.includes(:restaurants)
+    @restaurant_all = @restaurants
   end
 
   def new
@@ -43,15 +44,24 @@ class RestaurantsController < ApplicationController
     redirect_to root_path
   end
 
+  def show
+    @restaurant = Restaurant.find(params[:id])
+    @restaurant_all = Restaurant.includes(:user)
+    @tags = Tag.includes(:restaurants)
+  end
+
+
 
   def search
     @restaurants = Restaurant.search(params[:keyword])
     @tags = Tag.includes(:restaurants)
+    @restaurant_all = Restaurant.includes(:user)
   end
 
   def search_category
     @restaurants = @p.result
     @tags = Tag.includes(:restaurants)
+    @restaurant_all = Restaurant.includes(:user)
   end
 
   private

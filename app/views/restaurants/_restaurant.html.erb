@@ -3,17 +3,19 @@
     <% restaurants.each do |restaurant| %>
       <div class="restaurant-content">
         <div class="image-area">
-          <div class="restaurant-image">
-            <% if restaurant.image.attached? %>
-              <%= link_to image_tag restaurant.image.variant(resize: '200x300') if restaurant.image.attached? %>
-            <% else %>
-              <%= link_to image_tag("white.jpg", class: "white-img") %>
-            <% end %>
-          </div>
-          <div class="overlay-restaurant-image">
-            <p class="restaurant-name"><%= restaurant.shop_name %></p>
-            <p class="restaurant-category"><%= restaurant.category.name %></p> 
-          </div>
+          <%#= link_to restaurant_path(restaurant.id) do %>
+            <div class="restaurant-image">
+              <% if restaurant.image.attached? %>
+                <%= link_to image_tag restaurant.image.variant(resize: '200x300') %>
+              <% else %>
+                <%= link_to image_tag("white.jpg", class: "white-img") %>
+              <% end %>
+            </div>
+            <div class="overlay-restaurant-image">
+              <%= link_to restaurant.shop_name, restaurant_path(restaurant.id), class: "restaurant-name" %>
+              <p class="restaurant-category"><%= restaurant.category.name %></p> 
+            </div>
+          <%# end %>
           <%= link_to image_tag("checkbox.png", class:"restaurant-checkbox"), "#" %>
         </div>
         <div class="info-area">

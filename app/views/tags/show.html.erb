@@ -16,7 +16,7 @@
           <a href="#">Line</a>
         </div>
         <% if @tag.restaurants.length == 0 %>
-          <%= link_to 'destroy', tag_path(@tag.id), method: :delete, class: "tag-destroy" %>
+          <%= link_to '駅を削除', tag_path(@tag.id), method: :delete, class: "tag-destroy" %>
         <% end %>
       </div>
               

@@ -4,17 +4,14 @@ Rails.application.routes.draw do
 
   get '/restaurants/searchcategory',  to: 'restaurants#search_category'
 
-  resources :restaurants, only: [:index, :new, :create, :edit, :update, :destroy] do
+  resources :restaurants do
     collection do
       get 'search'
     end
   end
-  resources :tags, only: [:show] do
+  resources :tags, only: [:show, :destroy] do
     member do
       get 'search'
-    end
-    member do
-      get 'searchcategory'
     end
   end
 end
