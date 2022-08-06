@@ -7,4 +7,6 @@ class User < ApplicationRecord
   validates :group_name, presence: true
 
   has_many :restaurants
+  has_many :gos, dependent: :destroy
+  has_many :wents, dependent: :destroy
 end
