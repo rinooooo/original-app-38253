@@ -49,8 +49,8 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     @restaurant_all = Restaurant.includes(:user)
     @tags = Tag.includes(:restaurants)
+    @restaurant_form = RestaurantForm.new(shop_name: @restaurant.shop_name, address: @restaurant.address, category_id: @restaurant.category_id, phone_number: @restaurant.phone_number, url: @restaurant.url)
   end
-
 
 
   def search
