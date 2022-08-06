@@ -31,13 +31,11 @@
 
       <div class="show-evaluation-content">
         <div class="btns">
-          <div class="btn">
-            <%= link_to image_tag("went.png") %>
-            <p class="count">5</p>
-          </div>
-          <div class="btn">
-            <%= link_to image_tag("want-go.png") %>
-            <p class="count">3</p>
+          <div class="btn", id="go_button_<%= @restaurant.id %>">
+            <%= render partial: 'gos/go', locals: {restaurant: @restaurant} %>
+          </div>            
+          <div class="btn", id="went_button_<%= @restaurant.id %>">
+            <%= render partial: 'wents/went', locals: {restaurant: @restaurant} %>
           </div>
         </div>
         <div class="show-evaluation">
