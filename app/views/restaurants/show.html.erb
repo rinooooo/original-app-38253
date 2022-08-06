@@ -1,6 +1,3 @@
-
-
-
 <div class="wrapper show-wrapper">
   <div class="main-wrapper show-main-wrapper">
     <%= render partial: "sidebar", locals: { tags: @tags, restaurant_all: @restaurant_all } %>
@@ -14,7 +11,7 @@
       </div>
 
       <div class="edit-destroy">
-        <%= link_to '店情報を編集', edit_restaurant_path(@restaurant.id), class: "edit" %>
+        <%= link_to '店情報を編集', edit_restaurant_path(@restaurant.id), class: "edit", remote: true %>
         <%= link_to '店情報を削除', restaurant_path(@restaurant.id), method: :delete, class: "destroy" %>
       </div>
 
@@ -72,6 +69,8 @@
     </div>
   </div>
 </div>
+
+<%= render partial: "edit", locals: { restaurant: @restaurant, restaurant_form: @restaurant_form } %>
 
 
 

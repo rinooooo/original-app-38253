@@ -1,0 +1,53 @@
+
+<div class="restaurant-registration", id="restaurant-edit">
+  <%= form_with model: restaurant_form, url: restaurant_path(restaurant), method: :patch, local: true do |f| %>
+
+    <h2>店登録</h2>
+
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        商品画像
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+    </div>
+    <div class="shop-new">
+      <div class="weight-bold-text">
+        店名
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :shop_name, class:"shop-text", id:"shop-name", placeholder:"店名", size: "30" %>
+            
+      <div class="weight-bold-text">
+        住所
+      </div>
+      <%= f.text_area :address, class:"shop-text", id:"address", placeholder:"住所", size: "30" %>
+      <div class="weight-bold-text">
+        電話番号
+      </div>
+      <%= f.text_area :phone_number, class:"shop-text", id:"phone_number", placeholder:"電話番号", size: "30" %>
+      <div class="weight-bold-text">
+        URL
+      </div>
+      <%= f.text_area :url, class:"shop-text", id:"url", placeholder:"URL", size: "30" %>
+      <div class="weight-bold-text">
+        駅名
+      <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :tag_name, class:"shop-text", id:"tag_text", placeholder:"駅名" %>
+      <div class="weight-bold-text">
+        カテゴリー
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"shop-prefecture"}) %>
+
+      <input type="submit" name="commit" value="登録する" class="submit-btn" data-disable-with="登録する">
+      <h1 id="back">戻る</h1>
+    </div>
+    
+  <% end %>
+</div>

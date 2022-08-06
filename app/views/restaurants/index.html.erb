@@ -2,6 +2,7 @@
   <div class="main-wrapper">
     <%= render partial: "sidebar", locals: { tags: @tags, restaurant_all: @restaurant_all } %>
     <%= render partial: "main", locals: { p: @p } %>
+    <%= render partial: "new", locals: { restaurant_form: @restaurant_form } %>
   </div>
 </div>
 
