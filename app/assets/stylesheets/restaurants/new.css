@@ -4,6 +4,7 @@
   height: 850px;
   background-color: #FFFFFF;
   padding: 30px;
+  display: none;
 }
 .indispensable {
   display: inline-block;

@@ -6,6 +6,7 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.includes(:user)
     @tags = Tag.includes(:restaurants)
     @restaurant_all = @restaurants
+    @restaurant_form = RestaurantForm.new
   end
 
   def new
@@ -32,7 +33,7 @@ class RestaurantsController < ApplicationController
     @restaurant_form = RestaurantForm.new(restaurant_form_update_params)
     if @restaurant_form.valid?
       @restaurant_form.update
-      redirect_to root_path
+      redirect_to restaurant_path(@restaurant.id)
     else
       render :edit
     end
