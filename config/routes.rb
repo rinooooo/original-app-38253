@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+    resources :gos, only: [:create]
+    resources :wents, only: [:create]
   end
   resources :tags, only: [:show, :destroy] do
     member do

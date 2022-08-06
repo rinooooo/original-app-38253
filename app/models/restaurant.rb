@@ -3,6 +3,8 @@ class Restaurant < ApplicationRecord
   has_one_attached :image
   has_many   :restaurant_tags, dependent: :destroy
   has_many   :tags, through: :restaurant_tags, dependent: :destroy
+  has_many :gos, dependent: :destroy
+  has_many :wents, dependent: :destroy
 
   def self.search(search)
     if search != ""

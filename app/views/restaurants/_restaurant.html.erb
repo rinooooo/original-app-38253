@@ -20,14 +20,15 @@
         </div>
         <div class="info-area">
           <div class="btns">
-            <div class="btn">
-              <%= link_to image_tag("went.png") %>
-              <p class="count">5</p>
+
+            <div class="btn", id="go_button_<%= restaurant.id %>">
+              <%= render partial: 'gos/go', locals: {restaurant: restaurant} %>
             </div>
-            <div class="btn">
-              <%= link_to image_tag("want-go.png") %>
-              <p class="count">3</p>
+            
+            <div class="btn", id="went_button_<%= restaurant.id %>">
+              <%= render partial: 'wents/went', locals: {restaurant: restaurant} %>
             </div>
+
           </div>
           <div class="evaluation">
             <div class="star">星評価</div>

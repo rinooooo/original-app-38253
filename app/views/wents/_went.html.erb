@@ -1,0 +1,6 @@
+<%= link_to restaurant_wents_path(restaurant.id), method: :post, remote: true do %>
+  <div class="btn">
+    <%= image_tag("went.png") %>
+    <p class="count"><%= restaurant.wents.count %></p>
+  </div>
+<% end %>
