@@ -14,12 +14,15 @@ class RestaurantsController < ApplicationController
   end
 
   def create
+    @restaurants = Restaurant.includes(:user)
     @restaurant_form = RestaurantForm.new(restaurant_form_params)
-    if @restaurant_form.valid?
-      @restaurant_form.save
-      redirect_to root_path
-    else
-      render :new
+    respond_to do |format|
+      if @restaurant_form.valid?
+        @restaurant_form.save
+        format.js
+      else
+        format.html { render :new } 
+      end
     end
   end
 
@@ -29,13 +32,16 @@ class RestaurantsController < ApplicationController
   end
 
   def update
+    @restaurants = Restaurant.includes(:user)
     @restaurant = Restaurant.find(params[:id])
     @restaurant_form = RestaurantForm.new(restaurant_form_update_params)
-    if @restaurant_form.valid?
-      @restaurant_form.update
-      redirect_to restaurant_path(@restaurant.id)
-    else
-      render :edit
+    respond_to do |format|
+      if @restaurant_form.valid?
+        @restaurant_form.update
+        format.js
+      else
+        format.html { render :edit } 
+      end
     end
   end
 
@@ -50,6 +56,7 @@ class RestaurantsController < ApplicationController
     @restaurant_all = Restaurant.includes(:user)
     @tags = Tag.includes(:restaurants)
     @restaurant_form = RestaurantForm.new(shop_name: @restaurant.shop_name, address: @restaurant.address, category_id: @restaurant.category_id, phone_number: @restaurant.phone_number, url: @restaurant.url)
+    @restaurant_form_new = RestaurantForm.new
   end
 
 

@@ -1,7 +1,8 @@
 <div class="restaurant-registration", id="restaurant-registration">
-  <%= form_with model: restaurant_form, url:restaurants_path, local: true do |f| %>
+  <%= form_with model: restaurant_form, url:restaurants_path, remote: true do |f| %>
     
     <h2>店登録</h2>
+    <h1 id="new-back">戻る</h1>
 
     <div class="img-upload">
       <div class="weight-bold-text">
@@ -44,7 +45,6 @@
       <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"shop-prefecture"}) %>     
             
       <input type="submit" name="commit" value="登録する" class="submit-btn" data-disable-with="登録する">
-      <h1 id="back">戻る</h1>
     </div>
     
   <% end %>

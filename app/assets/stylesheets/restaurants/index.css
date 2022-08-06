@@ -4,15 +4,12 @@ header {
   height: 260px;
   width: 100%;
   background-color: #EEEBEB;
+  display: flex;
+  align-items: center;
 }
 .header-left {
-  display: inline-block;
   height: 260px;
   margin-left: 50px;
-}
-.header-right {
-  display: inline-block;
-  padding-bottom: 50px;
 }
 .header-right a {
   display: inline-block;
@@ -76,6 +73,9 @@ header {
 
 
 /* main */
+.main {
+  width: calc(100% - 240px - 280px);
+}
 
 /* map */
 .map {
@@ -135,6 +135,8 @@ header {
 .restaurant-image {
   text-align: center;
   margin-top: 50px;
+  width: 300px;
+  height: 200px;
 }
 .white-img {
   height: 200px;
