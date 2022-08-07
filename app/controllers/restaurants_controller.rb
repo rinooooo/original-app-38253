@@ -42,6 +42,9 @@ class RestaurantsController < ApplicationController
     @tags = Tag.includes(:restaurants)
     respond_to do |format|
       if @restaurant_form.valid?
+        if @restaurant_form.image == nil
+          @restaurant_form.image == @restaurant.image 
+        end
         @restaurant_form.update
         @restaurant = Restaurant.find(params[:id])
         format.js
