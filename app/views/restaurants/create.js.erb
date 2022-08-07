@@ -1,4 +1,5 @@
 $('#restaurants').html("<%= j (render partial: "restaurant", locals: { restaurants: @restaurants }) %>");
 $('#sidebar').html("<%= j (render partial: "sidebar", locals: { tags: @tags, restaurant_all: @restaurant_all }) %>");
+
 $("textarea").val('');
 $('#restaurant-registration').fadeOut();
