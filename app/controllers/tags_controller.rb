@@ -7,6 +7,7 @@ class TagsController < ApplicationController
     @tag = Tag.find(params[:id])
     @restaurants = @tag.restaurants
     @restaurant_all = Restaurant.includes(:user)
+    @restaurant_form = RestaurantForm.new
   end
 
   def destroy

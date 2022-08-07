@@ -4,7 +4,7 @@
   height: 600px;
   background-color: #FFFFFF;
   padding: 30px;
-
+  display: none;
   position: fixed;
   left: 30%;
   z-index: 100;

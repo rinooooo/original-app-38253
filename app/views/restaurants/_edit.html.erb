@@ -1,6 +1,6 @@
 
 <div class="restaurant-registration", id="restaurant-edit">
-  <%= form_with model: restaurant_form, url: restaurant_path(restaurant), method: :patch, local: true do |f| %>
+  <%= form_with model: restaurant_form, url: restaurant_path(restaurant.id), method: :patch, remote: true do |f| %>
 
     <h2>店登録</h2>
     <h1 id="edit-back">戻る</h1>

@@ -32,12 +32,14 @@ class RestaurantsController < ApplicationController
   end
 
   def update
+    @restaurant_form_new = RestaurantForm.new(restaurant_form_params)
     @restaurants = Restaurant.includes(:user)
     @restaurant = Restaurant.find(params[:id])
     @restaurant_form = RestaurantForm.new(restaurant_form_update_params)
     respond_to do |format|
       if @restaurant_form.valid?
         @restaurant_form.update
+        @restaurant = Restaurant.find(params[:id])
         format.js
       else
         format.html { render :edit } 
