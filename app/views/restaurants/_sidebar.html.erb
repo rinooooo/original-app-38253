@@ -19,13 +19,13 @@
         <div class="station-list">
           <ul>
             <li class="tag">
-              <%= link_to '全て', root_path %>
+              <%= link_to '全て', root_path, remoto: true %>
               <%= "(" %><%= restaurant_all.length %><%= ")" %>
             </li>
             <% tags.each do |tag| %>
             <li class="tag">
               <div>
-                <%= link_to tag.tag_name, tag_path(tag.id) %>
+                <%= link_to tag.tag_name, tag_path(tag.id), remote: true %>
                 <%= "(" %><%= tag.restaurants.length %><%= ")" %>
               </div>
             </li>
@@ -36,4 +36,5 @@
     </div>
   </div>
 </div>
+
 

@@ -1,0 +1,3 @@
+$('#main').html("<%= j (render partial: "show", locals: { restaurant: @restaurant }) %>");
+$('#sidebar').html("<%= j (render partial: "sidebar", locals: { tags: @tags, restaurant_all: @restaurant_all }) %>");
+$('#restaurant-edit').fadeOut();

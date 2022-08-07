@@ -1,76 +1,20 @@
 <div class="wrapper show-wrapper">
   <div class="main-wrapper show-main-wrapper">
-    <%= render partial: "sidebar", locals: { tags: @tags, restaurant_all: @restaurant_all } %>
-  
-    <div class="show-content">
-      <div class="show-restaurant-name">
-        <%= @restaurant.shop_name %><%= "@" %>
-        <% @restaurant.tags.each do |tag| %>
-          <%= tag.tag_name %>
-        <% end %>
-      </div>
-
-      <div class="edit-destroy">
-        <%= link_to '店情報を編集', edit_restaurant_path(@restaurant.id), class: "edit", remote: true %>
-        <%= link_to '店情報を削除', restaurant_path(@restaurant.id), method: :delete, class: "destroy" %>
-      </div>
-
-      <div class="show-img-map"> 
-        <div class="show-image">
-          <% if @restaurant.image.attached? %>
-            <%= link_to image_tag @restaurant.image.variant(resize: '200x300') if @restaurant.image.attached? %>
-          <% else %>
-            <%= link_to image_tag("white.jpg", class: "white-img") %>
-          <% end %>
-        </div>
-        <div class="show-map"></div>
-      </div>
-
-      <div class="show-evaluation-content">
-        <div class="btns">
-          <div class="btn", id="go_button_<%= @restaurant.id %>">
-            <%= render partial: 'gos/go', locals: {restaurant: @restaurant} %>
-          </div>            
-          <div class="btn", id="went_button_<%= @restaurant.id %>">
-            <%= render partial: 'wents/went', locals: {restaurant: @restaurant} %>
-          </div>
-        </div>
-        <div class="show-evaluation">
-          <div class="star">星評価</div>
-          <div>5</div>
-        </div>
-      </div>
-
-      <div class="show-comment">
-        <div class="comments"></div>
-        <div class="comment-form"></div>
-      </div>
-
-      <div class="show-restaurant-info">
-        <table border="1" bordercolor="gray" width="100%" cellpadding="20">
-          <tr>
-            <th width="20%">住所</th>
-            <th width="80%"><%= @restaurant.address %></th>
-          </tr>
-          <tr>
-            <td>URL</td>
-            <td><%= link_to @restaurant.url, "#" %></td>
-          </tr>
-          <tr>
-            <td>電話番号</td>
-            <td><%= link_to @restaurant.phone_number, "#" %></td>
-          </tr>
-          <tr>
-            <td>カテゴリー</td>
-            <td><%= @restaurant.category.name %></td>
-          </tr>
-        </table>
-      </div>
+    <div id="sidebar">
+      <%= render partial: "sidebar", locals: { tags: @tags, restaurant_all: @restaurant_all } %>
     </div>
+    
+    <div id="main">
+      <%= render partial: "show", locals: { restaurant: @restaurant } %>
+    </div>
+    
+    <%= render partial: "new", locals: { restaurant_form: @restaurant_form_new } %>
+    <%= render partial: "edit", locals: { restaurant_form: @restaurant_form, restaurant: @restaurant } %>
   </div>
 </div>
 
-<%= render partial: "edit", locals: { restaurant: @restaurant, restaurant_form: @restaurant_form } %>
+
+
 
 
 
