@@ -13,7 +13,8 @@
       <a href="#">Line</a>
     </div>
   </div>
-              
-  <%= render partial: "restaurant", locals: { restaurants: @restaurants } %>
   
+  <div id="restaurants">
+    <%= render partial: "restaurant", locals: { restaurants: @restaurants } %>
+  </div>
 </div>

@@ -1,7 +1,9 @@
 <div class="wrapper show-wrapper">
   <div class="main-wrapper show-main-wrapper">
-    <%= render partial: "sidebar", locals: { tags: @tags, restaurant_all: @restaurant_all } %>
-
+    <div id="sidebar">
+      <%= render partial: "sidebar", locals: { tags: @tags, restaurant_all: @restaurant_all } %>
+    </div>
+    
     <div id="main">
       <%= render partial: "show", locals: { restaurant: @restaurant } %>
     </div>

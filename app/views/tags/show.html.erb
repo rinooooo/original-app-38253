@@ -1,6 +1,9 @@
 <div class="wrapper">
   <div class="main-wrapper">
-    <%= render partial: "restaurants/sidebar", locals: { tags: @tags, restaurant_all: @restaurant_all } %>
+    <div id="sidebar">
+      <%= render partial: "restaurants/sidebar", locals: { tags: @tags, restaurant_all: @restaurant_all } %>
+    </div>
+
     <div class="main">
       <%= render partial: "restaurants/map" %>
     
@@ -18,8 +21,10 @@
           <%= link_to '駅を削除', tag_path(@tag.id), method: :delete, class: "tag-destroy" %>
         <% end %>
       </div>
-              
-      <%= render partial: "restaurants/restaurant", locals: { restaurants: @restaurants } %>
+      
+      <div id="restaurants">
+        <%= render partial: "restaurants/restaurant", locals: { restaurants: @restaurants } %>
+      </div>
     </div>
 
     <%= render partial: "restaurants/new", locals: { restaurant_form: @restaurant_form } %>

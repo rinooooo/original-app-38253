@@ -1,6 +1,9 @@
 <div class="wrapper">
   <div class="main-wrapper">
-    <%= render partial: "sidebar", locals: { tags: @tags, restaurant_all: @restaurant_all } %>
+    <div id="sidebar">
+      <%= render partial: "sidebar", locals: { tags: @tags, restaurant_all: @restaurant_all } %>
+    </div>
+    
     <div class="main">
 
       <%= render partial: "map" %>
@@ -11,8 +14,9 @@
         </div>
       </div>
               
+      <div id="restaurants">
       <%= render partial: "restaurant", locals: { restaurants: @restaurants } %>
-
+      </div>
     </div>
     <%= render partial: "new", locals: { restaurant_form: @restaurant_form } %>
   </div>

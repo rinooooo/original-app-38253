@@ -73,7 +73,7 @@ header {
 
 
 /* main */
-.main {
+#main {
   width: calc(100% - 240px - 280px);
 }
 

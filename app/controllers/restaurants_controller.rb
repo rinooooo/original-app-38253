@@ -15,7 +15,9 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurants = Restaurant.includes(:user)
+    @tags = Tag.includes(:restaurants)
     @restaurant_form = RestaurantForm.new(restaurant_form_params)
+    @restaurant_all = @restaurants
     respond_to do |format|
       if @restaurant_form.valid?
         @restaurant_form.save
@@ -36,6 +38,8 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.includes(:user)
     @restaurant = Restaurant.find(params[:id])
     @restaurant_form = RestaurantForm.new(restaurant_form_update_params)
+    @restaurant_all = Restaurant.includes(:user)
+    @tags = Tag.includes(:restaurants)
     respond_to do |format|
       if @restaurant_form.valid?
         @restaurant_form.update
@@ -66,12 +70,14 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.search(params[:keyword])
     @tags = Tag.includes(:restaurants)
     @restaurant_all = Restaurant.includes(:user)
+    @restaurant_form = RestaurantForm.new
   end
 
   def search_category
     @restaurants = @p.result
     @tags = Tag.includes(:restaurants)
     @restaurant_all = Restaurant.includes(:user)
+    @restaurant_form = RestaurantForm.new
   end
 
   private
