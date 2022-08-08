@@ -1,0 +1,1 @@
+Webpacker::Compiler.env['GOOGLE_MAP_API'] = ENV["GOOGLE_MAP_API"]
