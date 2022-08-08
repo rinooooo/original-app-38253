@@ -19,8 +19,30 @@
         <%= link_to image_tag("white.jpg", class: "white-img") %>
       <% end %>
     </div>
-    <div class="show-map"></div>
+    <!--div class="show-map", id="map">
+          <script>
+            let map
+              function initMap(){
+                map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: <%= performance.latitude %>, lng: <%= performance.longitude %>},
+                zoom: 15,
+                zoomControl: false,
+                mapTypeControl: false,
+                fullscreenControl: false,
+                streetViewControl: false,
+                });
+
+                marker = new google.maps.Marker({
+                position: {lat: <%= performance.latitude %>, lng: <%= performance.longitude %>},
+                map: map
+                });
+              geocoder = new google.maps.Geocoder()
+              }
+          </script>
+          <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API'] %>&callback=initMap" async defer></script>
+    </div-->
   </div>
+    
 
   <div class="show-evaluation-content">
     <div class="btns">
@@ -45,8 +67,8 @@
   <div class="show-restaurant-info">
     <table border="1" bordercolor="gray" width="100%" cellpadding="20">
       <tr>
-        <th width="20%">住所</th>
-        <th width="80%"><%= restaurant.address %></th>
+        <td width="20%">住所</td>
+        <td width="80%"><%= performance.address %></td>
       </tr>
       <tr>
         <td>URL</td>

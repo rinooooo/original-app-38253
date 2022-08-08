@@ -1,6 +1,7 @@
 <div class="main">
-
-  <%= render partial: "map" %>
+  <div id="main-map">
+    <%= render partial: "map", locals: { restaurants: @restaurants } %>
+  </div>
     
   <div class="middle">
     <div class="categoly-search-form">
@@ -16,5 +17,5 @@
   
   <div id="restaurants">
     <%= render partial: "restaurant", locals: { restaurants: @restaurants } %>
-  </div>
+  
 </div>

@@ -21,6 +21,7 @@ class RestaurantsController < ApplicationController
     respond_to do |format|
       if @restaurant_form.valid?
         @restaurant_form.save
+        @restaurants = Restaurant.includes(:user)
         format.js
       else
         format.html { render :new } 
@@ -30,7 +31,7 @@ class RestaurantsController < ApplicationController
 
   def edit
     @restaurant = Restaurant.find(params[:id])
-    @restaurant_form = RestaurantForm.new(shop_name: @restaurant.shop_name, address: @restaurant.address, category_id: @restaurant.category_id, phone_number: @restaurant.phone_number, url: @restaurant.url)
+    @restaurant_form = RestaurantForm.new(shop_name: @restaurant.shop_name, category_id: @restaurant.category_id, phone_number: @restaurant.phone_number, url: @restaurant.url)
   end
 
   def update
@@ -47,6 +48,7 @@ class RestaurantsController < ApplicationController
         end
         @restaurant_form.update
         @restaurant = Restaurant.find(params[:id])
+        @performance = @restaurant.performance
         format.js
       else
         format.html { render :edit } 
@@ -64,8 +66,9 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     @restaurant_all = Restaurant.includes(:user)
     @tags = Tag.includes(:restaurants)
-    @restaurant_form = RestaurantForm.new(shop_name: @restaurant.shop_name, address: @restaurant.address, category_id: @restaurant.category_id, phone_number: @restaurant.phone_number, url: @restaurant.url)
+    @restaurant_form = RestaurantForm.new(shop_name: @restaurant.shop_name, category_id: @restaurant.category_id, phone_number: @restaurant.phone_number, url: @restaurant.url, address: @restaurant.performance.address)
     @restaurant_form_new = RestaurantForm.new
+    @performance = @restaurant.performance
   end
 
 
@@ -85,11 +88,11 @@ class RestaurantsController < ApplicationController
 
   private
   def restaurant_form_params
-    params.require(:restaurant_form).permit(:shop_name, :address, :category_id, :phone_number, :url, :image, :tag_name).merge(user_id: current_user.id)
+    params.require(:restaurant_form).permit(:shop_name, :address, :category_id, :phone_number, :url, :image, :tag_name, :longitude, :latitude).merge(user_id: current_user.id)
   end
 
   def restaurant_form_update_params
-    params.require(:restaurant_form).permit(:shop_name, :address, :category_id, :phone_number, :url, :image, :tag_name).merge(user_id: current_user.id, restaurant_id: @restaurant.id)
+    params.require(:restaurant_form).permit(:shop_name, :address, :category_id, :phone_number, :url, :image, :tag_name, :longitude, :latitude).merge(user_id: current_user.id, restaurant_id: @restaurant.id)
   end
 
   def create_searching_object
