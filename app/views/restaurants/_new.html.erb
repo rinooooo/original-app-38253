@@ -1,8 +1,14 @@
 <div class="restaurant-registration", id="restaurant-registration">
+  <h2>店登録</h2>
+  <h1 id="new-back">戻る</h1>
+
+  <div class="weight-bold-text">
+      食べログから情報を入力してください
+  </div>
+  <textarea cols="40" rows="5" id="tabelog"></textarea>
+  <p><button id="tabelogbtn">自動入力</button></p>
+
   <%= form_with model: restaurant_form, url:restaurants_path, remote: true do |f| %>
-    
-    <h2>店登録</h2>
-    <h1 id="new-back">戻る</h1>
 
     <div class="img-upload">
       <div class="weight-bold-text">
