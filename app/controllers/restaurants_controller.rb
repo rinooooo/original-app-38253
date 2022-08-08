@@ -85,7 +85,7 @@ class RestaurantsController < ApplicationController
 
   private
   def restaurant_form_params
-    params.require(:restaurant_form).permit(:shop_name, :address, :category_id, :phone_number, :url, :image, :tag_name).merge(user_id: current_user.id)
+    params.require(:restaurant_form).permit(:shop_name, :address, :category_id, :phone_number, :url, :image, :tag_name, :longitude, :latitude).merge(user_id: current_user.id)
   end
 
   def restaurant_form_update_params

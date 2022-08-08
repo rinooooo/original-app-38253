@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_06_111727) do
+ActiveRecord::Schema.define(version: 2022_08_08_015508) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 2022_08_06_111727) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["restaurant_id"], name: "index_gos_on_restaurant_id"
     t.index ["user_id"], name: "index_gos_on_user_id"
+  end
+
+  create_table "maps", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.bigint "restaurant_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["restaurant_id"], name: "index_maps_on_restaurant_id"
   end
 
   create_table "restaurant_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -94,6 +104,7 @@ ActiveRecord::Schema.define(version: 2022_08_06_111727) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "gos", "restaurants"
   add_foreign_key "gos", "users"
+  add_foreign_key "maps", "restaurants"
   add_foreign_key "restaurant_tags", "restaurants"
   add_foreign_key "restaurant_tags", "tags"
   add_foreign_key "restaurants", "users"
