@@ -32,6 +32,7 @@ header {
   padding-bottom: 120px;
 }
 .main-wrapper {
+  width: 100%;
   padding: 0 120px;
   display: flex;
 }
