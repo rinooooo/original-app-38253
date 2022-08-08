@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :map do
+  factory :performance do
     
   end
 end
