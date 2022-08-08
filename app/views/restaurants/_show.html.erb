@@ -19,25 +19,27 @@
         <%= link_to image_tag("white.jpg", class: "white-img") %>
       <% end %>
     </div>
-    <div class="show-map", id="show-map">
-        <style>#show-map {height: 400px;width: 400px;}</style>
-        <script>
-          let map
-          function initMap(){
-            geocoder = new google.maps.Geocoder()
+    <div class="show-map", id="map">
+          <script>
+            let map
+              function initMap(){
+                map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: <%= @performance.latitude %>, lng: <%= @performance.longitude %>},
+                zoom: 15,
+                zoomControl: false,
+                mapTypeControl: false,
+                fullscreenControl: false,
+                streetViewControl: false,
+                });
 
-            map = new google.maps.Map(document.getElementById('show-map'), {
-            enter: {lat: 40.7828, lng:-73.9653},
-            zoom: 12,
-            });
-
-            marker = new google.maps.Marker({
-            position:  {lat: 40.7828, lng:-73.9653},
-            map: map
-            });
-          }
-        </script>
-        
+                marker = new google.maps.Marker({
+                position: {lat: <%= @performance.latitude %>, lng: <%= @performance.longitude %>},
+                map: map
+                });
+              geocoder = new google.maps.Geocoder()
+              }
+          </script>
+          <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API'] %>&callback=initMap" async defer></script>
     </div>
   </div>
     

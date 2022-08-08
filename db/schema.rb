@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_08_022232) do
+ActiveRecord::Schema.define(version: 2022_08_08_052904) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -73,7 +73,6 @@ ActiveRecord::Schema.define(version: 2022_08_08_022232) do
 
   create_table "restaurants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "shop_name", null: false
-    t.string "address"
     t.integer "category_id", null: false
     t.string "phone_number"
     t.string "url"
