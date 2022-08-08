@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2022_08_08_022232) do
   end
 
   create_table "performances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "address"
     t.float "latitude"
     t.float "longitude"
     t.bigint "restaurant_id", null: false

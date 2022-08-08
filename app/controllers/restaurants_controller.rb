@@ -66,6 +66,7 @@ class RestaurantsController < ApplicationController
     @tags = Tag.includes(:restaurants)
     @restaurant_form = RestaurantForm.new(shop_name: @restaurant.shop_name, address: @restaurant.address, category_id: @restaurant.category_id, phone_number: @restaurant.phone_number, url: @restaurant.url)
     @restaurant_form_new = RestaurantForm.new
+    @performance = @restaurant.performance
   end
 
 
