@@ -1,6 +1,6 @@
 $('#sidebar').html("<%= j (render partial: "sidebar", locals: { tags: @tags, restaurant_all: @restaurant_all }) %>");
 
-$('#main-map').html("<%= j (render partial: "map", locals: { restaurants: @restaurants }) %>");
+<%# $('#main-map').html("<%= j (render partial: "map", locals: { restaurants: @restaurants }) %><%#"); %>
 
 $('#restaurants').html("<%= j (render partial: "restaurant", locals: { restaurants: @restaurants }) %>");
 
