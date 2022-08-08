@@ -1,5 +1,4 @@
 /* ヘッダー */
-
 header {
   height: 260px;
   width: 100%;
@@ -55,7 +54,7 @@ header {
 .sidebar h2 {
   font-size: 20px;
 }
-.reftaurant-search {
+.retaurant-search {
   margin-top: 20px;
 }
 .search-from-name {

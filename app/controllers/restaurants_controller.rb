@@ -20,7 +20,6 @@ class RestaurantsController < ApplicationController
     @restaurant_all = @restaurants
     respond_to do |format|
       if @restaurant_form.valid?
-        binding.pry
         @restaurant_form.save
         @restaurants = Restaurant.includes(:user)
         format.js
