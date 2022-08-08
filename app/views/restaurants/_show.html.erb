@@ -24,7 +24,7 @@
             let map
               function initMap(){
                 map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: <%= @performance.latitude %>, lng: <%= @performance.longitude %>},
+                center: {lat: <%= performance.latitude %>, lng: <%= performance.longitude %>},
                 zoom: 15,
                 zoomControl: false,
                 mapTypeControl: false,
@@ -33,7 +33,7 @@
                 });
 
                 marker = new google.maps.Marker({
-                position: {lat: <%= @performance.latitude %>, lng: <%= @performance.longitude %>},
+                position: {lat: <%= performance.latitude %>, lng: <%= performance.longitude %>},
                 map: map
                 });
               geocoder = new google.maps.Geocoder()
@@ -68,7 +68,7 @@
     <table border="1" bordercolor="gray" width="100%" cellpadding="20">
       <tr>
         <th width="20%">住所</th>
-        <th width="80%"><%= restaurant.address %></th>
+        <th width="80%"><%= performance.address %></th>
       </tr>
       <tr>
         <td>URL</td>
