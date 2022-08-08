@@ -3,7 +3,7 @@
 </div>
 
 <div class="main">
-  <%= render partial: "restaurants/map" %>
+  <%= render partial: "restaurants/map", locals: { restaurants: restaurants } %>
   
   <div class="middle">
     <div class="categoly-search-form">

@@ -1,4 +1,27 @@
 <div class="map">
-  <%#!--# googleマップでクリックしたピンの店情報が出る（店一覧と同じボックスで） --%>
-  
+  <div class="map", id="map">
+    <script>
+        let map
+        function initMap(){
+          map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 35.68123620000001, lng:139.7671248},
+          zoom: 10,
+          zoomControl: false,
+          mapTypeControl: false,
+          fullscreenControl: false,
+          streetViewControl: false,
+          });
+
+          <% restaurants.each do |restaurant| %>
+            marker = new google.maps.Marker({
+            position: {lat: <%= restaurant.performance.latitude %>, lng: <%= restaurant.performance.longitude %>},
+            map: map
+            });
+          <% end %>
+
+          geocoder = new google.maps.Geocoder()
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API'] %>&callback=initMap" async defer></script>
+  </div>
 </div>
