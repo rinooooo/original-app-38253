@@ -3,7 +3,8 @@ class RestaurantsController < ApplicationController
   before_action :create_searching_object, only: [:index, :search, :search_category]
 
   def index
-    @restaurants = Restaurant.includes(:user)
+    
+    @restaurants = current_user.restaurants
     @tags = Tag.includes(:restaurants)
     @restaurant_all = @restaurants
     @restaurant_form = RestaurantForm.new
@@ -14,14 +15,14 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    @restaurants = Restaurant.includes(:user)
+    @restaurants = current_user.restaurants
     @tags = Tag.includes(:restaurants)
     @restaurant_form = RestaurantForm.new(restaurant_form_params)
     @restaurant_all = @restaurants
     respond_to do |format|
       if @restaurant_form.valid?
         @restaurant_form.save
-        @restaurants = Restaurant.includes(:user)
+        @restaurants = current_user.restaurants
         format.js
       else
         format.html { render :new } 
@@ -36,7 +37,7 @@ class RestaurantsController < ApplicationController
 
   def update
     @restaurant_form_new = RestaurantForm.new(restaurant_form_params)
-    @restaurants = Restaurant.includes(:user)
+    @restaurants = current_user.restaurants
     @restaurant = Restaurant.find(params[:id])
     @restaurant_form = RestaurantForm.new(restaurant_form_update_params)
     @restaurant_all = Restaurant.includes(:user)
@@ -69,20 +70,24 @@ class RestaurantsController < ApplicationController
     @restaurant_form = RestaurantForm.new(shop_name: @restaurant.shop_name, category_id: @restaurant.category_id, phone_number: @restaurant.phone_number, url: @restaurant.url, address: @restaurant.performance.address)
     @restaurant_form_new = RestaurantForm.new
     @performance = @restaurant.performance
+    @comments = @restaurant.comments
+    @comment = Comment.new
   end
 
 
   def search
-    @restaurants = Restaurant.search(params[:keyword])
+    @restaurant_search = Restaurant.search(params[:keyword])
+    @restaurants = @restaurant_search.where(user_id: current_user.id)
     @tags = Tag.includes(:restaurants)
-    @restaurant_all = Restaurant.includes(:user)
+    @restaurant_all = current_user.restaurants
     @restaurant_form = RestaurantForm.new
   end
 
   def search_category
-    @restaurants = @p.result
+    @restaurant_ransack = @p.result
+    @restaurants = @restaurant_ransack.where(user_id: current_user.id)
     @tags = Tag.includes(:restaurants)
-    @restaurant_all = Restaurant.includes(:user)
+    @restaurant_all = current_user.restaurants
     @restaurant_form = RestaurantForm.new
   end
 

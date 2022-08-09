@@ -1,0 +1,12 @@
+<div class="comments">
+  <%= render partial: 'comments/comment', locals: {comments: comments} %>
+</div>
+
+<div class="comment-form">
+<%= form_with model: [restaurant, comment], remote: true do |f| %>
+  <%= f.text_field :nickname, class: 'comment-nickname', placeholder: 'ニックネーム' %>
+  <%= f.text_field :comment, class: 'comment-comment', placeholder: 'コメント' %>
+  <%= f.submit '送信', class: 'comment-submit' %>
+<% end %>
+</div>
+

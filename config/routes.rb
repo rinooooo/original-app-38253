@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     end
     resources :gos, only: [:create]
     resources :wents, only: [:create]
+    resources :comments, only: [:create, :destroy]
   end
   resources :tags, only: [:show, :destroy] do
     member do

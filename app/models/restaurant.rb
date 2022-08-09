@@ -6,6 +6,7 @@ class Restaurant < ApplicationRecord
   has_many :gos, dependent: :destroy
   has_many :wents, dependent: :destroy
   has_one :performance, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   def self.search(search)
     if search != ""
