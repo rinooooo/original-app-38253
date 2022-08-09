@@ -2,13 +2,13 @@ class CommentsController < ApplicationController
   
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
-    @comment = @restaurant.comments.new(comment_params)
-    @comment.save
-  end
-  
-  def destroy
-    @comment = Comment.find(params[:id])
-    @comment.destroy
+    @comments = @restaurant.comments
+    @comment = Comment.new(comment_params)
+    if @comment.save
+      render :index
+    else
+      render "restaurants/show"
+    end
   end
 
   private

@@ -1,16 +1,12 @@
+<div class="comments">
+  <%= render partial: 'comments/comment', locals: {comments: comments} %>
+</div>
 
-<% restaurant.comments.each do |comment| %>
-  <div class="form-input">
-    <%= comment.nickname%>
-    <%= comment.comment%>
-  </div>
-<% end %>
-
-<%= form_with model: [@restaurant, @comment], class: 'form', local: true do |f| %>
-  <div class="form-input">
-    <%= f.text_field :nickname, class: 'comment-nickname', placeholder: 'ニックネーム' %>
-    <%= f.text_field :comment, class: 'comment-comment', placeholder: 'コメント' %>
-  </div>
+<div class="comment-form">
+<%= form_with model: [restaurant, comment], remote: true do |f| %>
+  <%= f.text_field :nickname, class: 'comment-nickname', placeholder: 'ニックネーム' %>
+  <%= f.text_field :comment, class: 'comment-comment', placeholder: 'コメント' %>
   <%= f.submit '送信', class: 'comment-submit' %>
 <% end %>
+</div>
 
