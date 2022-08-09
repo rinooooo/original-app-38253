@@ -15,7 +15,7 @@
   <div class="show-img-map"> 
     <div class="show-image">
       <% if restaurant.image.attached? %>
-        <%= link_to image_tag restaurant.image.variant(resize: '200x300') if restaurant.image.attached? %>
+        <%= link_to image_tag restaurant.image.variant(resize: '200x200') if restaurant.image.attached? %>
       <% else %>
         <%= link_to image_tag("white.jpg", class: "white-img") %>
       <% end %>
@@ -46,7 +46,7 @@
     
 
   <div class="show-evaluation-content">
-    <div class="btns">
+    <div class="btns show-btns">
       <div class="btn", id="go_button_<%= restaurant.id %>">
         <%= render partial: 'gos/go', locals: {restaurant: restaurant} %>
       </div>            
@@ -54,14 +54,6 @@
         <%= render partial: 'wents/went', locals: {restaurant: restaurant} %>
       </div>
     </div>
-    <div class="show-evaluation">
-      <div class="star">星評価</div>
-      <div></div>
-    </div>
-  </div>
-
-  <div class="show-comment">
-    <%= render partial: "comments/index", locals: { restaurant: @restaurant, comment: @comment, comments: @comments} %>
   </div>
 
   <div class="show-restaurant-info">
@@ -84,4 +76,9 @@
       </tr>
     </table>
   </div>
+
+  <div class="show-comment">
+    <%= render partial: "comments/index", locals: { restaurant: @restaurant, comment: @comment, comments: @comments} %>
+  </div>
+
 </div>

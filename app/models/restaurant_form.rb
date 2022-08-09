@@ -17,7 +17,7 @@ class RestaurantForm
   def save
     restaurant = Restaurant.create(shop_name: shop_name, category_id: category_id, phone_number: phone_number, url: url, image: image, user_id: user_id)
     tag = Tag.where(tag_name: tag_name).first_or_initialize
-    tag.save
+    tag.save(tag_name: tag_name, user_id: user_id)
     Performance.create(address: address, latitude: latitude, longitude: longitude, restaurant_id: restaurant.id)
     RestaurantTag.create(restaurant_id: restaurant.id, tag_id: tag.id)
   end

@@ -6,7 +6,7 @@ class TagsController < ApplicationController
     @tags = Tag.includes(:restaurants)
     @tag = Tag.find(params[:id])
     @restaurants = @tag.restaurants
-    @restaurant_all = Restaurant.includes(:user)
+    @restaurant_all = current_user.restaurants
     @restaurant_form = RestaurantForm.new
   end
 
