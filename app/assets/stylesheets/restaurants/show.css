@@ -15,6 +15,9 @@
 .edit-destroy {
   display: block;
 }
+.edit-destroy a {
+  font-size: 18px;
+}
 .show-img-map {
   display: flex;
   justify-content: space-between;
@@ -44,6 +47,7 @@
   margin: 0 20px 0 0;
   height: 40px;
   line-height: 40px;
+  font-size: 18px;
 }
 .show-evaluation {
   background-color: aquamarine;
@@ -71,7 +75,8 @@
   margin-top: 10px;
   background-color: #FFFFFF;
 }
-table td, table th {
+table td {
   word-break: break-all;
   padding: 10px;
+  font-size: 18px;
 }

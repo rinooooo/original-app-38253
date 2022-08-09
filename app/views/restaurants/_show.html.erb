@@ -4,7 +4,6 @@
     <% restaurant.tags.each do |tag| %>
       <%= tag.tag_name %>
     <% end %>
-  </div>
 
   <div class="edit-destroy">
     <div class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-url="<%= restaurant.url %>" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
@@ -62,8 +61,7 @@
   </div>
 
   <div class="show-comment">
-    <div class="comments"></div>
-    <div class="comment-form"></div>
+    <%= render partial: "comments/index", locals: { restaurant: @restaurant, comment: @comment, comments: @comments} %>
   </div>
 
   <div class="show-restaurant-info">
