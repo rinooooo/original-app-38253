@@ -1,17 +1,16 @@
 class TagsController < ApplicationController
   before_action :authenticate_user!
   before_action :create_searching_object, only: [:show, :search]
+  before_action :find_tag, only: [:show, :destroy, :search]
 
 
   def show
     #マップ、レストランの表示レストラン
-    @tag = Tag.find(params[:id])
     @tag_restaurants = @tag.restaurants
     @restaurants = @tag_restaurants.where(user_id: current_user.id)
   end
 
   def destroy
-    @tag = Tag.find(params[:id])
     @tag.destroy
     redirect_to root_path
   end
@@ -20,12 +19,10 @@ class TagsController < ApplicationController
     #マップ、レストランの表示レストラン
     @restaurant_ransack = @p.result
     @restaurants_user = @restaurant_ransack.where(user_id: current_user.id)
-    @tag = Tag.find(params[:id])
     @restaurants_tag = @tag.restaurants
     @restaurants = @restaurants_user & @restaurants_tag
-    #サイドバーの（全て）
+    #サイドバー
     @restaurant_all = current_user.restaurants
-    #サイドバーのタグ
     @tag_array = []
     @restaurant_all.each do |restaurant|
       if restaurant.user_id == current_user.id
@@ -40,9 +37,15 @@ class TagsController < ApplicationController
     @restaurant_form = RestaurantForm.new
   end
 
+
+
+
   private
   def create_searching_object
     @p = Restaurant.ransack(params[:q]) 
   end
 
+  def find_tag
+    @tag = Tag.find(params[:id])
+  end
 end
