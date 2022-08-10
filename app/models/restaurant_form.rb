@@ -10,14 +10,14 @@ class RestaurantForm
     validates :shop_name
     validates :tag_name
     validates :user_id
-    validates :category_id, numericality: { other_than: 1 , message: "can't be blank"} 
+    validates :category_id, numericality: { other_than: 1 , message: "カテゴリーを入力してください"} 
     validates :address
   end
 
   def save
     restaurant = Restaurant.create(shop_name: shop_name, category_id: category_id, phone_number: phone_number, url: url, image: image, user_id: user_id)
     tag = Tag.where(tag_name: tag_name).first_or_initialize
-    tag.save(tag_name: tag_name, user_id: user_id)
+    tag.save
     Performance.create(address: address, latitude: latitude, longitude: longitude, restaurant_id: restaurant.id)
     RestaurantTag.create(restaurant_id: restaurant.id, tag_id: tag.id)
   end

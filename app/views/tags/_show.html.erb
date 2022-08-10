@@ -1,16 +1,14 @@
-<div id="sidebar">
-  <%= render partial: "restaurants/sidebar", locals: { tags: tags, restaurant_all: restaurant_all } %>
-</div>
+  <div id="main-map">
+    <%= render partial: "restaurants/map", locals: { restaurants: @restaurants } %>
+  </div>
 
-<div class="main">
-  <%= render partial: "restaurants/map", locals: { restaurants: restaurants } %>
-  
   <div class="middle">
+    <div class="tag-page-name">@<%= tag.tag_name %></div>
     <div class="categoly-search-form">
-          <%#= search_form_for @p, url: restaurants_searchcategory_path do |f| %>
-            <%#= f.collection_select :category_id_eq, Category.all, :id, :name, {}, {class:"select-box", id:"shop-category"} %>
-            <%#= f.submit '検索' %>
-          <%# end %>
+          <%= search_form_for p, url: search_tag_path(tag.id) do |f| %>
+            <%= f.collection_select :category_id_eq, Category.all, :id, :name, {}, {class:"select-box", id:"shop-category"} %>
+            <%= f.submit '検索' %>
+          <% end %>
      </div>
     <% if tag.restaurants.length == 0 %>
       <%= link_to '駅を削除', tag_path(tag.id), method: :delete, class: "tag-destroy" %>
@@ -18,11 +16,9 @@
   </div>
       
   <div id="restaurants">
-    <%= render partial: "restaurants/restaurant", locals: { restaurants: restaurants } %>
+    <%= render partial: "restaurants/restaurant", locals: { restaurants: @restaurants } %>
   </div>
-</div>
 
-<%= render partial: "restaurants/new", locals: { restaurant_form: restaurant_form } %>
 
 
 

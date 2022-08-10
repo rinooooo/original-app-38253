@@ -1,3 +1,4 @@
-$('#main').html("<%= j (render partial: "show", locals: { restaurant: @restaurant, performance: @performance }) %>");
-$('#sidebar').html("<%= j (render partial: "sidebar", locals: { tags: @tags, restaurant_all: @restaurant_all }) %>");
+$('.show-restaurant-name').html("<%= j (render partial: "show-title", locals: { restaurant: @restaurant }) %>");
+$('#restaurant-show').html("<%= j (render partial: "show", locals: { restaurant: @restaurant, performance: @performance }) %>");
+$('#sidebar').html("<%= j (render partial: "sidebar", locals: { tags: @tags, restaurants: @restaurant_all }) %>");
 $('#restaurant-edit').fadeOut();

@@ -8,6 +8,7 @@ class Restaurant < ApplicationRecord
   has_one :performance, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+
   def self.search(search)
     if search != ""
       Restaurant.where('restaurants.shop_name LIKE(?)', "%#{search}%")
@@ -19,6 +20,5 @@ class Restaurant < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
 
-  #validates :category_id, numericality: { other_than: 1 , message: "can't be blank"} 
 end
 

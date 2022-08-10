@@ -1,28 +1,18 @@
 
 <div class="restaurant-registration", id="restaurant-edit">
+  <div id="new-back edit-back", class="new-back edit-back">
+    <%= link_to image_tag("batu.png", class: "batu.img", size: '30x30') %>
+  </div>
+
+  <div class="form">
   <%= form_with model: restaurant_form, url: restaurant_path(restaurant.id), method: :patch, remote: true do |f| %>
 
-    <h2>店登録</h2>
-    <h1 id="edit-back">戻る</h1>
-
-    <div class="img-upload">
-      <div class="weight-bold-text">
-        商品画像
-      </div>
-      <div class="click-upload">
-        <p>
-          クリックしてファイルをアップロード
-        </p>
-        <%= f.file_field :image, id:"item-image" %>
-      </div>
-    </div>
     <div class="shop-new">
       <div class="weight-bold-text">
         店名
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :shop_name, class:"shop-text", id:"shop-name", placeholder:"店名", size: "30" %>
-            
+      <%= f.text_area :shop_name, class:"shop-text", id:"shop-name", placeholder:"店名", size: "30" %>  
       <div class="weight-bold-text">
         住所
       </div>
@@ -45,8 +35,16 @@
         <span class="indispensable">必須</span>
       </div>
       <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"shop-prefecture"}) %>
+      <div class="img-upload">
+        <div class="weight-bold-text">
+          商品画像
+        </div>
+        <div class="click-upload">
+          <%= f.file_field :image, id:"item-image" %>
+       </div>
+      </div>
 
-      <input type="submit" name="commit" value="登録する" class="submit-btn" data-disable-with="登録する">
+      <input type="submit" name="commit" value="更新する" class="edit-btn" data-disable-with="登録する">
     </div>
     
   <% end %>

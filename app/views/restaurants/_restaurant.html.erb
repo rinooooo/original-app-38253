@@ -1,36 +1,32 @@
-<div class="restaurants">
   <div class="restaurant-list">
     <% restaurants.each do |restaurant| %>
-      <div class="restaurant-content">
+      <div class="restaurant-content"> 
+        <%# restaurantの画像エリア %>
         <div class="image-area">
-          <%#= link_to restaurant_path(restaurant.id) do %>
-            <div class="restaurant-image">
-              <% if restaurant.image.attached? %>
-                <%= link_to image_tag restaurant.image.variant(resize: '200x300') %>
-              <% else %>
-                <%= link_to image_tag("white.jpg", class: "white-img") %>
-              <% end %>
-            </div>
-            <div class="overlay-restaurant-image">
-              <%= link_to restaurant.shop_name, restaurant_path(restaurant.id), class: "restaurant-name" %>
-              <p class="restaurant-category"><%= restaurant.category.name %></p> 
-            </div>
-          <%# end %>
+          <div class="restaurant-image">
+            <% if restaurant.image.attached? %>
+              <%= link_to image_tag restaurant.image.variant(combine_options:{gravity: :center, resize:"200x200^", crop:"200x200+0+0"}) %>
+            <% else %>
+              <%= link_to image_tag("white.jpg", class: "white-img", size: '200x200') %>
+            <% end %>
+          </div>
+          <div class="overlay-restaurant-image">
+            <%= link_to restaurant.shop_name, restaurant_path(restaurant.id), class: "restaurant-name" %>
+            <p class="restaurant-category"><%= restaurant.category.name %></p> 
+          </div>
           <%= link_to image_tag("checkbox.png", class:"restaurant-checkbox"), "#" %>
         </div>
+        <%# restaurantのいいねエリア %>
         <div class="info-area">
           <div class="btns">
-
             <div class="btn", id="go_button_<%= restaurant.id %>">
               <%= render partial: 'gos/go', locals: {restaurant: restaurant} %>
             </div>
             <div class="btn", id="went_button_<%= restaurant.id %>">
               <%= render partial: 'wents/went', locals: {restaurant: restaurant} %>
             </div>
-
           </div>
         </div>
       </div>
     <% end %>
   </div>
-</div>

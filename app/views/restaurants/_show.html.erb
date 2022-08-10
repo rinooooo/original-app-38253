@@ -1,23 +1,9 @@
-<div class="show-content">
-  <div class="show-restaurant-name">
-    <%= restaurant.shop_name %><%= "@" %>
-    <% restaurant.tags.each do |tag| %>
-      <%= tag.tag_name %>
-    <% end %>
-
-  <div class="edit-destroy">
-    <div class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-url="<%= restaurant.url %>" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
-    <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
-    <%= link_to '店情報を編集', edit_restaurant_path(restaurant.id), class: "edit", remote: true %>
-    <%= link_to '店情報を削除', restaurant_path(restaurant.id), method: :delete, class: "destroy" %>
-  </div>
-
   <div class="show-img-map"> 
     <div class="show-image">
       <% if restaurant.image.attached? %>
-        <%= link_to image_tag restaurant.image.variant(resize: '200x200') if restaurant.image.attached? %>
+        <%= link_to image_tag restaurant.image.variant(combine_options:{gravity: :center, resize:"200x200^", crop:"200x200+0+0"}) %>
       <% else %>
-        <%= link_to image_tag("white.jpg", class: "white-img") %>
+        <%= link_to image_tag("white.jpg", class: "white-img", size: '200x200') %>
       <% end %>
     </div>
     <!--div class="show-map", id="map">
@@ -76,9 +62,3 @@
       </tr>
     </table>
   </div>
-
-  <div class="show-comment">
-    <%= render partial: "comments/index", locals: { restaurant: @restaurant, comment: @comment, comments: @comments} %>
-  </div>
-
-</div>

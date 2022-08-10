@@ -1,10 +1,12 @@
-<div class="main">
+
   <div id="main-map">
-    <%= render partial: "map", locals: { restaurants: @restaurants } %>
+    <%# restaurantsを一つづつ取り出してperformanceを取得、マップに表示！ %>
+    <%= render partial: "restaurants/map", locals: { restaurants: @restaurants } %>
   </div>
     
   <div class="middle">
     <div class="categoly-search-form">
+      <%# 絞り込みを押すとrestaurants/search_categoryアクション→restaurants/search_categoryビューへ %>
       <%= search_form_for p, url: restaurants_searchcategory_path do |f| %>
         <%= f.collection_select :category_id_eq, Category.all, :id, :name, {}, {class:"select-box", id:"shop-category"} %>
         <%= f.submit '絞り込み' %>
@@ -13,6 +15,7 @@
   </div>
   
   <div id="restaurants">
-    <%= render partial: "restaurant", locals: { restaurants: @restaurants } %>
+    <%# restaurantsを一つづつ取り出してperformanceを取得、マップに表示！ %>
+    <%= render partial: "restaurants/restaurant", locals: { restaurants: @restaurants } %>
+  </div>
   
-</div>

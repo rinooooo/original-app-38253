@@ -1,58 +1,58 @@
 <div class="restaurant-registration", id="restaurant-registration">
-  <h2>店登録</h2>
-  <h1 id="new-back">戻る</h1>
+  <div id="new-back", class="new-back">
+    <%= link_to image_tag("batu.png", class: "batu.img", size: '30x30') %>
+  </div>
 
-  <div class="weight-bold-text">
+
+  <div class="form">
+  <div class="weight-bold-text self-input">
       食べログから情報を入力してください
   </div>
-  <textarea cols="40" rows="5" id="tabelog"></textarea>
+  <textarea cols="40" rows="5" id="tabelog" ></textarea>
   <p><button id="tabelogbtn">自動入力</button></p>
 
   <%= form_with model: restaurant_form, url:restaurants_path, remote: true do |f| %>
-
-    <div class="img-upload">
-      <div class="weight-bold-text">
-        商品画像
-      </div>
-      <div class="click-upload">
-        <p>
-          クリックしてファイルをアップロード
-        </p>
-        <%= f.file_field :image, id:"item-image" %>
-      </div>
-    </div>
+  
     <div class="shop-new">
-      <div class="weight-bold-text">
+      <div class="weight-bold-text from_tabelog">
         店名
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :shop_name, class:"shop-text", id:"shop-name", placeholder:"店名", size: "30" %>      
-      <div class="weight-bold-text">
+      <%= f.text_area :shop_name, class:"shop-text", id:"shop-name", placeholder:"店名" %>      
+      <div class="weight-bold-text from_tabelog">
         住所
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :address, class:"shop-text", id:"address", placeholder:"住所", size: "30" %>
-      <div class="weight-bold-text">
+      <%= f.text_area :address, class:"shop-text", id:"address", placeholder:"住所" %>
+      <div class="weight-bold-text from_tabelog">
         電話番号
       </div>
-      <%= f.text_area :phone_number, class:"shop-text", id:"phone_number", placeholder:"電話番号", size: "30" %> 
-      <div class="weight-bold-text">
+      <%= f.text_area :phone_number, class:"shop-text", id:"phone_number", placeholder:"電話番号" %> 
+      <div class="weight-bold-text from_tabelog">
         URL
       </div>
-      <%= f.text_area :url, class:"shop-text", id:"url", placeholder:"URL", size: "30" %>     
-      <div class="weight-bold-text">
+      <%= f.text_area :url, class:"shop-text", id:"url", placeholder:"URL" %>     
+      <div class="weight-bold-text self-input">
         駅名
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_area :tag_name, class:"shop-text", id:"tag_text", placeholder:"駅名" %>
-      <div class="weight-bold-text">
+      <div class="weight-bold-text self-input">
         カテゴリー
         <span class="indispensable">必須</span>
       </div>
       <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"shop-prefecture"}) %>     
-            
-      <input type="submit" name="commit" value="登録する" class="submit-btn" data-disable-with="登録する">
     </div>
-    
+    <div class="img-upload">
+      <div class="weight-bold-text self-input">
+        商品画像
+      </div>
+      <div class="click-upload">
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+    </div>
+
+    <input type="submit" name="commit" value="登録する" class="registration-btn" data-disable-with="登録する">
   <% end %>
+  </div>
 </div>

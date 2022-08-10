@@ -1,6 +1,6 @@
 .restaurant-registration {
-  width: 600px;
-  height: 600px;
+  width: 500px;
+  height: 500px;
   background-color: #FFFFFF;
   padding: 30px;
   display: none;
@@ -9,6 +9,32 @@
   top: 300px;
   z-index: 100;
   overflow: scroll;
+  border-radius: 10px;
+  border: solid 10px lightgrey;
+}
+.registration-btn, .edit-btn {
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+  background-color: navy;
+  border-radius: 10px;
+  width: 400px;
+  margin: 20px 0;
+  text-align: center;
+  color: #FFFFFF;
+}
+.form {
+  margin: 0 50px;
+}
+.form textarea {
+  width: 400px;
+}
+.from_tabelog {
+  color: gray;
+}
+.new-back {
+  position: fixed;
+  margin-left: 480px;
 }
 .indispensable {
   display: inline-block;
@@ -18,6 +44,10 @@
   text-align: center;
   border-radius: 5px;
   margin-left: 15px;
+  color: black;
+}
+.self-input {
+  font-weight: bold;
 }
 .weight-bold-text {
   margin-top: 15px;
