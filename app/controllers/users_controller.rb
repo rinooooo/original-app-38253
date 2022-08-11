@@ -20,4 +20,5 @@ class UsersController < ApplicationController
     @p = Restaurant.ransack(params[:q]) 
   end
 
+
 end
