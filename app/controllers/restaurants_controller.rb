@@ -147,6 +147,9 @@ class RestaurantsController < ApplicationController
       end
     end
     @tags = @tag_array.uniq
+    #フォローフォロワー
+    @following_users = current_user.followings
+    @follower_users = current_user.followers
   end
 
   def find_restaurant
