@@ -14,14 +14,13 @@ Rails.application.routes.draw do
     resources :wents, only: [:create]
     resources :comments, only: [:create, :destroy]
   end
+
   resources :tags, only: [:show, :destroy] do
     member do
       get 'search'
     end
   end
 
-
-  
   resources :users do
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'
