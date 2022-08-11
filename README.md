@@ -38,6 +38,11 @@ Things you may want to cover:
 - has_many :restaurants
 - has_many :comments
 
+- has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+- has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+- has_many :followings, through: :relationships, source: :followed
+- has_many :followers, through: :reverse_of_relationships, source: :follower
+
 
 
 ## restaurants テーブル
@@ -99,3 +104,18 @@ Things you may want to cover:
 
 - belongs_to :restaurant
 - belongs_to :tag
+
+
+
+## relationships テーブル
+
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| follower     | references | null: false, foreign_key: true |
+| followed     | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :follower, class_name: "User"
+- belongs_to :followed, class_name: "User"
+ 
