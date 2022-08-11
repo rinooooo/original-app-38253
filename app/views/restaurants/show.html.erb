@@ -15,6 +15,7 @@
           <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
           <%= link_to '店情報を編集', edit_restaurant_path(@restaurant.id), class: "edit", remote: true %>
           <%= link_to '店情報を削除', restaurant_path(@restaurant.id), method: :delete, class: "destroy" %>
+          <%= link_to '戻る', root_path %>
         </div>
 
         <div id="restaurant-show">

@@ -3,7 +3,7 @@ class RestaurantsController < ApplicationController
   #search_categoryに必要なransack(カテゴリー検索が出るindex, search_categoryのみ)
   before_action :create_searching_object, only: [:index, :search_category]
   #sidebarのインスタンス変数定義
-  before_action :sidebar_def, only: [:index, :update, :show, :search, :search_category]
+  before_action :sidebar_def, only: [:index, :show, :search, :search_category]
   before_action :find_restaurant, only: [:edit, :update, :destroy, :show]
   #店登録のためのインスタンス生成(hiddenでいるから)
   before_action :restaurant_form, only: [:index, new, :update, :show, :search, :search_category]
@@ -16,7 +16,6 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    @tags = Tag.includes(:restaurants)
     #インスタンス生成
     @restaurant_form = RestaurantForm.new(restaurant_form_params)
     #新規登録
@@ -24,6 +23,16 @@ class RestaurantsController < ApplicationController
       if @restaurant_form.valid?
         @restaurant_form.save
         @restaurants = current_user.restaurants
+        @tag_array = []
+        @restaurants.each do |restaurant|
+          if restaurant.user_id == current_user.id
+            tags = restaurant.tags
+            tags.each do |tag|
+              @tag_array.push(tag)
+            end
+          end
+        end
+        @tags = @tag_array.uniq
         format.js
       else
         format.html { render :new } 
@@ -55,6 +64,17 @@ class RestaurantsController < ApplicationController
         @restaurant_form_edit.update
         @restaurant = Restaurant.find(params[:id])
         @performance = @restaurant.performance
+        @restaurant_all = current_user.restaurants
+        @tag_array = []
+        @restaurant_all.each do |restaurant|
+          if restaurant.user_id == current_user.id
+            tags = restaurant.tags
+            tags.each do |tag|
+              @tag_array.push(tag)
+            end
+          end
+        end
+        @tags = @tag_array.uniq
         format.js
       else
         format.html { render :edit } 
@@ -116,6 +136,7 @@ class RestaurantsController < ApplicationController
     #サイドバーのタグ
     #sidebarにはログインしているユーザーが投稿したタグのみ表示
     #@tag_arrayでログインユーザーが投稿したものを配列に追加、@tagsで重複要素を排除
+    #レストランがない駅は表示されない
     @tag_array = []
     @restaurant_all.each do |restaurant|
       if restaurant.user_id == current_user.id

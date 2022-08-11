@@ -5,7 +5,7 @@
     </div>
 
     <div class="restaurant-share">
-      <h1><%= link_to 'シェアページ', users_path %></h1>
+      <h1><%= link_to 'マイページ', root_path %></h1>
     </div>
 
     <div class="reftaurant-search">      
@@ -24,14 +24,14 @@
         <div class="station-list">
           <ul>
             <li class="tag">
-              <%= link_to '全て', root_path, remoto: true %>
+              <%= link_to '全て', users_path, remoto: true %>
               <%= "(" %><%= restaurants.length %><%= ")" %>
             </li>
             <% tags.each do |tag| %>
               <li class="tag">
                 <div>
                   <%= link_to tag.tag_name, tag_path(tag.id), remote: true %>
-                  <%= "(" %><%= tag.restaurants.where(user_id: current_user.id).length %><%= ")" %>
+                  <%= "(" %><%= tag.restaurants.length %><%= ")" %>
                 </div>
               </li>
             <% end %>
