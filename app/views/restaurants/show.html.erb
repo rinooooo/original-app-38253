@@ -1,29 +1,38 @@
 <div class="wrapper show-wrapper">
   <div class="main-wrapper show-main-wrapper">
     <div id="sidebar">
-      <%= render partial: "sidebar", locals: { tags: @tags, restaurants: @restaurant_all } %>
+      <%= render partial: "show_sidebar", locals: { tags: @tags, restaurants: @restaurant_all } %>
     </div>
     
     <div id="main">
       <div class="show-content">
         <div class="show-restaurant-name">
           <%= render partial: "show-title", locals: { restaurant: @restaurant } %>
+          <% if @restaurant.user_id != current_user.id %>
+            <div class="user_group_name">by <%= @restaurant.user.group_name %></div>
+          <% end %>
         </div>
 
+        
         <div class="edit-destroy">
           <div class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-url="<%= @restaurant.url %>" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
           <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
-          <%= link_to '店情報を編集', edit_restaurant_path(@restaurant.id), class: "edit", remote: true %>
-          <%= link_to '店情報を削除', restaurant_path(@restaurant.id), method: :delete, class: "destroy" %>
+          <% if @restaurant.user_id == current_user.id %>
+            <%= link_to '店情報を編集', edit_restaurant_path(@restaurant.id), class: "edit", remote: true %>
+            <%= link_to '店情報を削除', restaurant_path(@restaurant.id), method: :delete, class: "destroy" %>
+          <% end %>
         </div>
+        
 
         <div id="restaurant-show">
         <%= render partial: "show", locals: { restaurant: @restaurant, performance: @performance} %>
         </div>
 
+        <% if @restaurant.user_id == current_user.id %>
         <div class="show-comment">
           <%= render partial: "comments/index", locals: { restaurant: @restaurant, comment: @comment, comments: @comments} %>
         </div>
+        <% end %>
       </div>
     </div>
     

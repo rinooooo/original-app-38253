@@ -1,0 +1,20 @@
+  <div id="main-map">
+    <%= render partial: "restaurants/map", locals: { restaurants: @relationships_restaurants } %>
+  </div>
+
+  <div class="middle">
+    <div class="tag-page-name">@<%= tag.tag_name %></div>
+    <div class="categoly-search-form">
+      <%= search_form_for p, url: tag_tags_searchcategory_path(@tag.id) do |f| %>
+        <%= f.collection_select :category_id_eq, Category.all, :id, :name, {}, {class:"select-box", id:"shop-category"} %>
+        <%= f.submit '検索' %>
+      <% end %>
+     </div>
+    <% if tag.restaurants.length == 0 %>
+      <%= link_to '駅を削除', tag_path(tag.id), method: :delete, class: "tag-destroy" %>
+    <% end %>
+  </div>
+      
+  <div id="restaurants">
+    <%= render partial: "restaurants/restaurant", locals: { restaurants: @relationships_restaurants } %>
+  </div>

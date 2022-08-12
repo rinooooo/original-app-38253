@@ -1,37 +1,33 @@
 <div class="sidebar">
 
-    <div class="sharepage">
-      <h1><%= link_to 'シェアページ', user_relationships_path(current_user.id) %></h1>
+    <div class="mypage">
+      <h1><%= link_to 'マイページ', root_path %></h1>
     </div>
 
-    <div class="restaurant-new">
-      <h1>登録する<%= link_to '＋', new_restaurant_path, remote: true %></h1>
-    </div>
-    
     <div class="reftaurant-search">      
       <h1>探す</h1>
 
       <div class="search-from-name">
         <h2>店名から探す</h2>
-        <%= form_with(url: search_restaurants_path, local: true, method: :get, class: "search-form") do |form| %>
+        <%= form_with(url: search_user_relationships_path(current_user.id), local: true, method: :get, class: "search-form") do |form| %>
           <%= form.text_field :keyword, placeholder: "店名を検索する", class: "search-input" %>
           <%= form.submit "検索", class: "search-btn" %>
         <% end %>
       </div>
-      
+
       <div class="search-from-station">
         <h2>駅から探す</h2>
         <div class="station-list">
           <ul>
             <li class="tag">
-              <%= link_to '全て', root_path, remoto: true %>
+              <%= link_to '全て', user_relationships_path(current_user.id) %>
               <%= "(" %><%= restaurants.length %><%= ")" %>
             </li>
-            <% tags.each do |tag| %>
+            <% @tags.each do |tag| %>
               <li class="tag">
                 <div>
                   <%= link_to tag.tag_name, tag_path(tag.id), remote: true %>
-                  <%= "(" %><%= tag.restaurants.where(user_id: current_user.id).length %><%= ")" %>
+                  <%= "(" %><%= tag.restaurants.length %><%= ")" %>
                 </div>
               </li>
             <% end %>
@@ -57,7 +53,6 @@
         <% else %>
           <p>ユーザーはいません</p>
         <% end %>
-
         </div>
       </div>
       <div class="user-follow-lists">
