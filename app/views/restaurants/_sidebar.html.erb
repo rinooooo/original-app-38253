@@ -37,19 +37,19 @@
     </div>
 
     <div class="restaurant-share">
-      <h1><%= link_to 'フォローする', new_user_relationships_path(current_user.id) %></h1>
+      <h1><%= link_to 'フォローする', user_relationships_path(current_user.id) %></h1>
       <h2>フォロー</h2><%= current_user.followings.count %>
       <% if @following_users.exists? %>
-        <% @users.each do |user| %>
-          <%= user.name %>
+        <% @following_users.each do |user| %>
+          <%= user.group_name %>
         <% end %>
       <% else %>
         <p>ユーザーはいません</p>
       <% end %>
       <h2>フォロワー</h2><%= current_user.followers.count %>
       <% if @follower_users.exists? %>
-        <% @users.each do |user| %>
-          <%= user.name %>
+        <% @follower_users.each do |user| %>
+          <%= user.group_name %>
         <% end %>
       <% else %>
         <p>ユーザーはいません</p>

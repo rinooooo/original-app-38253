@@ -33,6 +33,8 @@ class RestaurantsController < ApplicationController
           end
         end
         @tags = @tag_array.uniq
+        @following_users = current_user.followings
+        @follower_users = current_user.followers
         format.js
       else
         format.html { render :new } 
@@ -75,6 +77,8 @@ class RestaurantsController < ApplicationController
           end
         end
         @tags = @tag_array.uniq
+        @following_users = current_user.followings
+        @follower_users = current_user.followers
         format.js
       else
         format.html { render :edit } 

@@ -1,0 +1,56 @@
+<div class="sidebar">
+    <div class="restaurant-share">
+      <h1><%= link_to 'フォローする', new_user_relationships_path(current_user.id) %></h1>
+      <h2>フォロー</h2><%= current_user.followings.count %>
+      <% if @following_users.exists? %>
+        <% @following_users.each do |user| %>
+          <%= user.group_name %>
+        <% end %>
+      <% else %>
+        <p>ユーザーはいません</p>
+      <% end %>
+      <h2>フォロワー</h2><%= current_user.followers.count %>
+      <% if @follower_users.exists? %>
+        <% @follower_users.each do |user| %>
+          <%= user.group_name %>
+        <% end %>
+      <% else %>
+        <p>ユーザーはいません</p>
+      <% end %>
+    </div>
+
+    <div class="reftaurant-search">      
+      <h1>探す</h1>
+
+      <div class="search-from-name">
+        <h2>店名から探す</h2>
+        <%= form_with(url: search_restaurants_path, local: true, method: :get, class: "search-form") do |form| %>
+          <%= form.text_field :keyword, placeholder: "店名を検索する", class: "search-input" %>
+          <%= form.submit "検索", class: "search-btn" %>
+        <% end %>
+      </div>
+
+      <div class="search-from-station">
+        <h2>駅から探す</h2>
+        <div class="station-list">
+          <ul>
+            <li class="tag">
+              <%= link_to '全て', user_relationships_path(current_user.id) %>
+              <%= "(" %><%= @restaurants.length %><%= ")" %>
+            </li>
+            <% @tags.each do |tag| %>
+              <li class="tag">
+                <div>
+                  <%= link_to tag.tag_name, tag_path(tag.id) %>
+                  <%= "(" %><%= tag.restaurants.length %><%= ")" %>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+
