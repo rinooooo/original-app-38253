@@ -10,6 +10,8 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = current_user.restaurants
+    @users_all = User.all
+    @users = @users_all.where.not(id: current_user.id)
   end
 
   def new
@@ -109,14 +111,18 @@ class RestaurantsController < ApplicationController
     #マップ、レストランの表示レストラン
     @restaurant_search = Restaurant.search(params[:keyword])
     @restaurants = @restaurant_search.where(user_id: current_user.id)
+    @users_all = User.all
+    @users = @users_all.where.not(id: current_user.id)
   end
 
   def search_category
     #マップ、レストランの表示レストラン
     @restaurant_ransack = @p.result
     @restaurants = @restaurant_ransack.where(user_id: current_user.id)
+    @users_all = User.all
+    @users = @users_all.where.not(id: current_user.id)
   end
-  
+
 
 
 

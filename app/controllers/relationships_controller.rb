@@ -27,6 +27,9 @@ class RelationshipsController < ApplicationController
       tags.concat(following_user_tags)
     end
     @tags = tags.uniq
+    #フレンド登録
+    @users_all = User.all
+    @users = @users_all.where.not(id: current_user.id)
   end
 
   #searchメソッドはモデルでクラスメソッドを定義している
@@ -52,6 +55,9 @@ class RelationshipsController < ApplicationController
     #検索結果
     @searh_restaurants = Restaurant.search(params[:keyword])
     @restaurants = @searh_restaurants & @restaurant_all
+    #フレンド登録
+    @users_all = User.all
+    @users = @users_all.where.not(id: current_user.id)
   end
 
   def search_category
@@ -76,6 +82,9 @@ class RelationshipsController < ApplicationController
     #マップ、レストランの表示レストラン
     @restaurant_ransack = @p.result
     @restaurants = @restaurant_ransack & @restaurant_all
+    #フレンド登録
+    @users_all = User.all
+    @users = @users_all.where.not(id: current_user.id)
   end
 
   # フォローするとき

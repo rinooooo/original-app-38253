@@ -13,10 +13,10 @@
       <div class="middle">
         <div class="categoly-search-form">
           <%# 絞り込みを押すとrestaurants/search_categoryアクション→restaurants/search_categoryビューへ %>
-          <%#= search_form_for p, url: tag_tags_searchcategory_path(@tag.id) do |f| %>
-            <%#= f.collection_select :category_id_eq, Category.all, :id, :name, {}, {class:"select-box", id:"shop-category"} %>
-            <%#= f.submit '絞り込み' %>
-          <%# end %>
+          <%= search_form_for @p, url: tag_tags_searchcategory_path(@tag.id) do |f| %>
+            <%= f.collection_select :category_id_eq, Category.all, :id, :name, {}, {class:"select-box", id:"shop-category"} %>
+            <%= f.submit '絞り込み' %>
+          <% end %>
         </div>
       </div>
   
