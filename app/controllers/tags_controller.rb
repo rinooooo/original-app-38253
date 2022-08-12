@@ -5,9 +5,26 @@ class TagsController < ApplicationController
 
 
   def show
-    #マップ、レストランの表示レストラン
+    #マップ、レストランの表示レストラン（マイページ）
     @tag_restaurants = @tag.restaurants
     @restaurants = @tag_restaurants.where(user_id: current_user.id)
+    #マップ、レストランの表示レストラン（シェアページ）
+    @following_users = current_user.followings
+    @follower_users = current_user.followers
+
+    @relationships_restaurants = []
+    @tag_restaurants = @tag.restaurants
+    if @following_users.present?
+      @following_users.each do |user|
+        following_user_tag_restaurants = @tag_restaurants.where(user_id: user.id)
+        @relationships_restaurants.concat(following_user_tag_restaurants)
+      end
+      @user_restaurants = @tag_restaurants.where(user_id: current_user.id)
+      @relationships_restaurants.concat(@user_restaurants)
+    else
+      @tag_restaurants = @tag.restaurants
+      @relationships_restaurants = @tag_restaurants.where(user_id: current_user.id)
+    end
   end
 
   def destroy

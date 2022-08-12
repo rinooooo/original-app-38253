@@ -18,7 +18,6 @@ class RelationshipsController < ApplicationController
     end
     current_user_restaurants = Restaurant.where(user_id: current_user.id)
     @restaurants.concat(current_user_restaurants)
-
     #フォローしている人が投稿したレストランのタグ一覧
     tags = []
     @restaurants.each do |restaurant|
@@ -26,7 +25,7 @@ class RelationshipsController < ApplicationController
       tags.concat(following_user_tags)
     end
     @tags = tags.uniq
-
+    
   end
 
   # フォローするとき

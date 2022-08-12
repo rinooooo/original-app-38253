@@ -1,11 +1,10 @@
 <div class="wrapper">
   <div class="main-wrapper">
     <div id="sidebar">
-      <%= render partial: "sidebar", locals: { tags: @tags, restaurants: @restaurants } %>
+      <%= render partial: "relationships_sidebar", locals: { tags: @tags, restaurants: @restaurants } %>
     </div>
-    <div id="main">
-      <%= render partial: "main" %>
+    <div id="relationships-main">
+      <%= render partial: "relationships_main" %>
     </div>
-    <%#= render partial: "new", locals: { restaurant_form: @restaurant_form } %>
   </div>
 </div>

@@ -1,1 +1,2 @@
 $('#main').html("<%= j (render partial: "show", locals: { tag: @tag, p: @p }) %>");
+$('#relationships-main').html("<%= j (render partial: "relationships_show", locals: { tag: @tag }) %>")

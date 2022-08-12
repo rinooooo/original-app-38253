@@ -41,7 +41,7 @@
             <% @tags.each do |tag| %>
               <li class="tag">
                 <div>
-                  <%= link_to tag.tag_name, tag_path(tag.id) %>
+                  <%= link_to tag.tag_name, tag_path(tag.id), remote: true %>
                   <%= "(" %><%= tag.restaurants.length %><%= ")" %>
                 </div>
               </li>
