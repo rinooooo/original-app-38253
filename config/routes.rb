@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     member do
       get 'search'
     end
+    get '/tags/searchcategory',  to: 'tags#search_category'
   end
 
   resources :users do
