@@ -62,14 +62,14 @@ header {
   height: 40px;
   border-radius: 10px;
 }
-.search-from-name {
+.search-from-name, .user-follow-lists {
   margin-left: 20px;
 }
 .search-from-station {
   margin-left: 20px;
   margin-top: 15px;
 }
-.station-list {
+.station-list, .user-follow-list {
   margin-left: 50px
 }
 .tag {
@@ -193,3 +193,4 @@ header {
   margin-right: 10px;
   font-weight: bold;
 }
+

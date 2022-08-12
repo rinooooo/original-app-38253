@@ -1,5 +1,9 @@
 <div class="sidebar">
 
+    <div class="sharepage">
+      <h1><%= link_to 'シェアページ', user_relationships_path(current_user.id) %></h1>
+    </div>
+
     <div class="restaurant-new">
       <h1><%= link_to '登録する', new_restaurant_path, remote: true %></h1>
     </div>
@@ -36,24 +40,42 @@
       </div>
     </div>
 
-    <div class="restaurant-share">
-      <h1><%= link_to 'フォローする', user_relationships_path(current_user.id) %></h1>
-      <h2>フォロー</h2><%= current_user.followings.count %>
-      <% if @following_users.exists? %>
-        <% @following_users.each do |user| %>
-          <%= user.group_name %>
+    <div class="user-follow">
+      <h1><%= link_to '友達リスト', new_user_relationships_path(current_user.id) %></h1>
+      <div class="user-follow-lists">
+        <h2>フォロー<%= "(" %><%= current_user.followings.count %><%= ")" %></h2>
+        <div class="user-follow-list">
+        
+        <% if @following_users.exists? %>
+          <ul>
+            <li class="follow">
+              <% @following_users.each do |user| %>
+                <%= user.group_name %>
+              <% end %>
+            </li>
+          </ul>
+        <% else %>
+          <p>ユーザーはいません</p>
         <% end %>
-      <% else %>
-        <p>ユーザーはいません</p>
-      <% end %>
-      <h2>フォロワー</h2><%= current_user.followers.count %>
-      <% if @follower_users.exists? %>
-        <% @follower_users.each do |user| %>
-          <%= user.group_name %>
+
+        </div>
+      </div>
+      <div class="user-follow-lists">
+        <h2>フォロワー<%= "(" %><%= current_user.followers.count %><%= ")" %></h2>
+        <div class="user-follow-list">
+        <% if @follower_users.exists? %>
+          <ul>
+            <li class="follow">
+              <% @follower_users.each do |user| %>
+                <%= user.group_name %>
+              <% end %>
+            </li>
+          </ul>
+        <% else %>
+          <p>ユーザーはいません</p>
         <% end %>
-      <% else %>
-        <p>ユーザーはいません</p>
-      <% end %>
+        </div>
+      </div>
     </div>
 
 </div>
