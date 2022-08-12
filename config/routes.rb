@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: "restaurants#index"
 
   get '/restaurants/searchcategory',  to: 'restaurants#search_category'
+  get '/relationships/searchcategory',  to: 'relationships#search_category'
 
   resources :restaurants do
     collection do

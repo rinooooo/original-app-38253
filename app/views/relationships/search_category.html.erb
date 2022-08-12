@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="main-wrapper">
     <div id="sidebar">
-      <%= render partial: "relationships_sidebar", locals: { tags: @tags, restaurants: @restaurants } %>
+      <%= render partial: "relationships_sidebar", locals: { tags: @tags, restaurants: @restaurant_all } %>
     </div>
     <div id="relationships-main">
       <%= render partial: "relationships_main", locals: { p: @p } %>
