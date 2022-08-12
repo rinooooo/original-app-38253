@@ -22,7 +22,11 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    resource :relationships, only: [:create, :destroy, :new, :show]
+    resource :relationships, only: [:create, :destroy, :new, :show] do
+      collection do
+        get 'search'
+      end
+    end
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
   end

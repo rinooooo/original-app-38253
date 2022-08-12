@@ -5,7 +5,7 @@
     </div>
 
     <div class="restaurant-new">
-      <h1><%= link_to '登録する', new_restaurant_path, remote: true %></h1>
+      <h1><%= link_to '登録する＋', new_restaurant_path, remote: true %></h1>
     </div>
 
     <div class="reftaurant-search">      
@@ -41,7 +41,7 @@
     </div>
 
     <div class="user-follow">
-      <h1><%= link_to '友達リスト', new_user_relationships_path(current_user.id) %></h1>
+      <h1><%= link_to '友達リスト＋', new_user_relationships_path(current_user.id) %></h1>
       <div class="user-follow-lists">
         <h2>フォロー<%= "(" %><%= current_user.followings.count %><%= ")" %></h2>
         <div class="user-follow-list">

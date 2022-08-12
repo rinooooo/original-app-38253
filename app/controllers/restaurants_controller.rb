@@ -116,7 +116,7 @@ class RestaurantsController < ApplicationController
     @restaurant_ransack = @p.result
     @restaurants = @restaurant_ransack.where(user_id: current_user.id)
   end
-
+  
 
 
 

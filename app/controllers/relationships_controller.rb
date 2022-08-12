@@ -25,7 +25,32 @@ class RelationshipsController < ApplicationController
       tags.concat(following_user_tags)
     end
     @tags = tags.uniq
-    
+  end
+
+  #searchメソッドはモデルでクラスメソッドを定義している
+  def search
+    #（サイドバー）
+    @following_users = current_user.followings
+    @follower_users = current_user.followers
+    @restaurant_all = []
+    if @following_users.present?
+      @following_users.each do |user|
+        following_user_restaurants = Restaurant.where(user_id: user.id)
+        @restaurant_all.concat(following_user_restaurants)
+      end
+    end
+    current_user_restaurants = Restaurant.where(user_id: current_user.id)
+    @restaurant_all.concat(current_user_restaurants)
+    tags = []
+    @restaurant_all.each do |restaurant|
+      following_user_tags = restaurant.tags
+      tags.concat(following_user_tags)
+    end
+    @tags = tags.uniq
+
+    #検索結果
+    @searh_restaurants = Restaurant.search(params[:keyword])
+    @restaurants = @searh_restaurants & @restaurant_all
   end
 
   # フォローするとき

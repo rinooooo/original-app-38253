@@ -1,0 +1,25 @@
+<div class="wrapper">
+  <div class="main-wrapper">
+    <div id="sidebar">
+      <%= render partial: "relationships_sidebar", locals: { tags: @tags, restaurants: @restaurant_all } %>
+    </div>
+    
+    <div class="main" id="main">
+
+      <div id="main-map">
+        <%# restaurantsを一つづつ取り出してperformanceを取得、マップに表示！ %>
+        <%= render partial: "restaurants/map", locals: { restaurants: @restaurants } %>
+      </div>
+
+      <div class="middle">
+        <div class="categoly-search-form">
+        </div>
+      </div>
+  
+      <div id="restaurants">
+        <%# restaurantsを一つづつ取り出してperformanceを取得、マップに表示！ %>
+        <%= render partial: "restaurants/restaurant", locals: { restaurants: @restaurants } %>
+      </div>
+    </div>
+  </div>
+</div>
