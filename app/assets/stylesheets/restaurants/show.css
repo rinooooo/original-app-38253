@@ -12,6 +12,10 @@
 .show-restaurant-name {
   font-size: 40px;
 }
+.user_group_name {
+  font-size: 20px;
+  text-align: right;
+}
 .edit-destroy {
   display: block;
 }

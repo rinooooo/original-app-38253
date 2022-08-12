@@ -1,0 +1,12 @@
+<div class="sidebar">
+
+    <div class="mypage">
+      <h1><%= link_to 'マイページ', root_path %></h1>
+    </div>
+    <div class="sharepage">
+      <h1><%= link_to 'シェアページ', user_relationships_path(current_user.id) %></h1>
+    </div>
+
+</div>
+
+
