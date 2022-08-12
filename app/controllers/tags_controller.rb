@@ -3,12 +3,11 @@ class TagsController < ApplicationController
   before_action :create_searching_object, only: [:show, :search, :search_category]
   before_action :find_tag, only: [:show, :destroy, :search]
 
-
   def show
-    #マップ、レストランの表示レストラン（マイページ）
+    # マップ、レストランの表示レストラン（マイページ）
     @tag_restaurants = @tag.restaurants
     @restaurants = @tag_restaurants.where(user_id: current_user.id)
-    #マップ、レストランの表示レストラン（シェアページ）
+    # マップ、レストランの表示レストラン（シェアページ）
     @following_users = current_user.followings
     @follower_users = current_user.followers
 
@@ -32,34 +31,34 @@ class TagsController < ApplicationController
     redirect_to root_path
   end
 
-  #マイページ_tag_カテゴリー検索
+  # マイページ_tag_カテゴリー検索
   def search
-    #マップ、レストランの表示レストラン
+    # マップ、レストランの表示レストラン
     @restaurant_ransack = @p.result
     @restaurants_user = @restaurant_ransack.where(user_id: current_user.id)
     @restaurants_tag = @tag.restaurants
     @restaurants = @restaurants_user & @restaurants_tag
-    #サイドバー
+    # サイドバー
     @restaurant_all = current_user.restaurants
     @tag_array = []
     @restaurant_all.each do |restaurant|
-      if restaurant.user_id == current_user.id
-        tags = restaurant.tags
-        tags.each do |tag|
-          @tag_array.push(tag)
-        end
+      next unless restaurant.user_id == current_user.id
+
+      tags = restaurant.tags
+      tags.each do |tag|
+        @tag_array.push(tag)
       end
     end
     @tags = @tag_array.uniq
-    #店登録のためのインスタンス生成(hiddenでいるから)
+    # 店登録のためのインスタンス生成(hiddenでいるから)
     @restaurant_form = RestaurantForm.new
     @following_users = current_user.followings
     @follower_users = current_user.followers
   end
 
-  #シェアページ_tag_カテゴリー検索
+  # シェアページ_tag_カテゴリー検索
   def search_category
-    #（サイドバー）
+    # （サイドバー）
     @following_users = current_user.followings
     @follower_users = current_user.followers
     @restaurant_all = []
@@ -77,22 +76,20 @@ class TagsController < ApplicationController
       tags.concat(following_user_tags)
     end
     @tags = tags.uniq
-    #マップ、レストランの表示レストラン
+    # マップ、レストランの表示レストラン
     @tag = Tag.find(params[:tag_id])
     @restaurant_ransack = @p.result
     @restaurants_tag = @tag.restaurants
     @restaurants = @restaurant_ransack & @restaurant_all & @restaurants_tag
   end
 
-
-
   private
+
   def create_searching_object
-    @p = Restaurant.ransack(params[:q]) 
+    @p = Restaurant.ransack(params[:q])
   end
 
   def find_tag
     @tag = Tag.find(params[:id])
   end
 end
-

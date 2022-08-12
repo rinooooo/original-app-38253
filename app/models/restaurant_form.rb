@@ -10,12 +10,13 @@ class RestaurantForm
     validates :shop_name
     validates :tag_name
     validates :user_id
-    validates :category_id, numericality: { other_than: 1 , message: "カテゴリーを入力してください"} 
+    validates :category_id, numericality: { other_than: 1, message: 'カテゴリーを入力してください' }
     validates :address
   end
 
   def save
-    restaurant = Restaurant.create(shop_name: shop_name, category_id: category_id, phone_number: phone_number, url: url, image: image, user_id: user_id)
+    restaurant = Restaurant.create(shop_name: shop_name, category_id: category_id, phone_number: phone_number, url: url,
+                                   image: image, user_id: user_id)
     tag = Tag.where(tag_name: tag_name).first_or_initialize
     tag.save
     Performance.create(address: address, latitude: latitude, longitude: longitude, restaurant_id: restaurant.id)
@@ -24,7 +25,8 @@ class RestaurantForm
 
   def update
     restaurant = Restaurant.where(id: restaurant_id)
-    restaurant.update(shop_name: shop_name, category_id: category_id, phone_number: phone_number, url: url, image: image, user_id: user_id)
+    restaurant.update(shop_name: shop_name, category_id: category_id, phone_number: phone_number, url: url, image: image,
+                      user_id: user_id)
     tag = Tag.where(tag_name: tag_name).first_or_initialize
     tag.update(tag_name: tag_name)
     performance = Performance.where(restaurant_id: restaurant_id)
