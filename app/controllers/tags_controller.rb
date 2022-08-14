@@ -10,7 +10,6 @@ class TagsController < ApplicationController
     # マップ、レストランの表示レストラン（シェアページ）
     @following_users = current_user.followings
     @follower_users = current_user.followers
-
     @relationships_restaurants = []
     @tag_restaurants = @tag.restaurants
     if @following_users.present?
@@ -43,24 +42,21 @@ class TagsController < ApplicationController
     @tag_array = []
     @restaurant_all.each do |restaurant|
       next unless restaurant.user_id == current_user.id
-
-      tags = restaurant.tags
-      tags.each do |tag|
+        tags = restaurant.tags
+        tags.each do |tag|
         @tag_array.push(tag)
       end
     end
     @tags = @tag_array.uniq
-    # 店登録のためのインスタンス生成(hiddenでいるから)
-    @restaurant_form = RestaurantForm.new
     @following_users = current_user.followings
     @follower_users = current_user.followers
+    # 店登録のためのインスタンス生成(hiddenでいるから)
+    @restaurant_form = RestaurantForm.new
   end
 
   # シェアページ_tag_カテゴリー検索
   def search_category
-    # （サイドバー）
-    @following_users = current_user.followings
-    @follower_users = current_user.followers
+    # サイドバー
     @restaurant_all = []
     if @following_users.present?
       @following_users.each do |user|
@@ -76,6 +72,8 @@ class TagsController < ApplicationController
       tags.concat(following_user_tags)
     end
     @tags = tags.uniq
+    @following_users = current_user.followings
+    @follower_users = current_user.followers
     # マップ、レストランの表示レストラン
     @tag = Tag.find(params[:tag_id])
     @restaurant_ransack = @p.result
