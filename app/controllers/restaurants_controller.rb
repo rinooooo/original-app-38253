@@ -89,7 +89,7 @@ class RestaurantsController < ApplicationController
   end
 
   def destroy
-    @restaurant.destroy
+    @restaurant.destroy if current_user.id = @restaurant.user_id
     redirect_to root_path
   end
 

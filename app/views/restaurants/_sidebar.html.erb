@@ -45,11 +45,11 @@
         <div class="user-follow-list">        
         <% if @following_users.exists? %>
           <ul>
-            <li class="follow">
-              <% @following_users.each do |user| %>
+            <% @following_users.each do |user| %>
+              <li class="follow">
                 <%= user.group_name %>
-              <% end %>
-            </li>
+              </li>
+            <% end %>
           </ul>
         <% else %>
           <p>ユーザーはいません</p>
@@ -60,12 +60,12 @@
         <h2>フォロワー<%= "(" %><%= current_user.followers.count %><%= ")" %></h2>
         <div class="user-follow-list">
         <% if @follower_users.exists? %>
-          <ul>
-            <li class="follow">
-              <% @follower_users.each do |user| %>
+          <ul>  
+            <% @follower_users.each do |user| %>
+              <li class="follow">
                 <%= user.group_name %>
-              <% end %>
-            </li>
+              </li>
+            <% end %>
           </ul>
         <% else %>
           <p>ユーザーはいません</p>
