@@ -7,7 +7,6 @@
     <div class="main" id="main">
 
       <div id="main-map">
-        <%# restaurantsを一つづつ取り出してperformanceを取得、マップに表示！ %>
         <%= render partial: "restaurants/map", locals: { restaurants: @restaurants } %>
       </div>
 
@@ -17,7 +16,6 @@
       </div>
   
       <div id="restaurants">
-        <%# restaurantsを一つづつ取り出してperformanceを取得、マップに表示！ %>
         <%= render partial: "restaurants/restaurant", locals: { restaurants: @restaurants } %>
       </div>
     </div>

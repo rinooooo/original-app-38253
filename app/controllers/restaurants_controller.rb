@@ -2,16 +2,16 @@ class RestaurantsController < ApplicationController
   before_action :authenticate_user!
   # search_categoryに必要なransack(カテゴリー検索が出るindex, search_categoryのみ)
   before_action :create_searching_object, only: [:index, :search_category]
-  # sidebarのインスタンス変数定義
+  # sidebarのインスタンス変数定義(友達登録用インスタンス変数含む)
   before_action :sidebar_def, only: [:index, :show, :search, :search_category]
   before_action :find_restaurant, only: [:edit, :update, :destroy, :show]
   # 店登録のためのインスタンス生成(hiddenでいるから)
   before_action :restaurant_form, only: [:index, new, :update, :show, :search, :search_category]
+  # コメントブロック
+  before_action :comment_form, only: [:show, :update]
 
   def index
     @restaurants = current_user.restaurants
-    @users_all = User.all
-    @users = @users_all.where.not(id: current_user.id)
   end
 
   def new
@@ -85,41 +85,34 @@ class RestaurantsController < ApplicationController
         format.html { render :edit }
       end
     end
-    # コメントブロック
-    @comments = @restaurant.comments
-    @comment = Comment.new
   end
 
   def destroy
-    @restaurant.destroy
+    @restaurant.destroy if current_user.id = @restaurant.user_id
     redirect_to root_path
   end
 
   def show
     # main
     @performance = @restaurant.performance
-    @comments = @restaurant.comments
-    @comment = Comment.new
     # 店登録、店編集
     @restaurant_form_edit = RestaurantForm.new(shop_name: @restaurant.shop_name, category_id: @restaurant.category_id,
                                                phone_number: @restaurant.phone_number, url: @restaurant.url, address: @restaurant.performance.address)
   end
 
   # searchメソッドはモデルでクラスメソッドを定義している
+  # マイページワード検索
   def search
     # マップ、レストランの表示レストラン
     @restaurant_search = Restaurant.search(params[:keyword])
     @restaurants = @restaurant_search.where(user_id: current_user.id)
-    @users_all = User.all
-    @users = @users_all.where.not(id: current_user.id)
   end
 
+  # マイページカテゴリー検索
   def search_category
     # マップ、レストランの表示レストラン
     @restaurant_ransack = @p.result
     @restaurants = @restaurant_ransack.where(user_id: current_user.id)
-    @users_all = User.all
-    @users = @users_all.where.not(id: current_user.id)
   end
 
   private
@@ -160,6 +153,9 @@ class RestaurantsController < ApplicationController
     # フォローフォロワー
     @following_users = current_user.followings
     @follower_users = current_user.followers
+    # 新規友達フォローページのインスタンス変数
+    @users_all = User.all
+    @users = @users_all.where.not(id: current_user.id)
   end
 
   def find_restaurant
@@ -168,5 +164,10 @@ class RestaurantsController < ApplicationController
 
   def restaurant_form
     @restaurant_form = RestaurantForm.new
+  end
+
+  def comment_form
+    @comments = @restaurant.comments
+    @comment = Comment.new
   end
 end

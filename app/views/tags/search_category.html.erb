@@ -6,13 +6,12 @@
     <div id="relationships-main">
      
       <div id="main-map">
-        <%# restaurantsを一つづつ取り出してperformanceを取得、マップに表示！ %>
         <%= render partial: "restaurants/map", locals: { restaurants: @restaurants } %>
       </div>
     
       <div class="middle">
+        <div class="tag-page-name">@<%= @tag.tag_name %></div>
         <div class="categoly-search-form">
-          <%# 絞り込みを押すとrestaurants/search_categoryアクション→restaurants/search_categoryビューへ %>
           <%= search_form_for @p, url: tag_tags_searchcategory_path(@tag.id) do |f| %>
             <%= f.collection_select :category_id_eq, Category.all, :id, :name, {}, {class:"select-box", id:"shop-category"} %>
             <%= f.submit '絞り込み' %>
@@ -21,7 +20,6 @@
       </div>
   
       <div id="restaurants">
-        <%# restaurantsを一つづつ取り出してperformanceを取得、マップに表示！ %>
         <%= render partial: "restaurants/restaurant", locals: { restaurants: @restaurants } %>
       </div>
 

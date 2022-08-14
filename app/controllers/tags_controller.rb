@@ -10,7 +10,6 @@ class TagsController < ApplicationController
     # マップ、レストランの表示レストラン（シェアページ）
     @following_users = current_user.followings
     @follower_users = current_user.followers
-
     @relationships_restaurants = []
     @tag_restaurants = @tag.restaurants
     if @following_users.present?
@@ -50,15 +49,15 @@ class TagsController < ApplicationController
       end
     end
     @tags = @tag_array.uniq
-    # 店登録のためのインスタンス生成(hiddenでいるから)
-    @restaurant_form = RestaurantForm.new
     @following_users = current_user.followings
     @follower_users = current_user.followers
+    # 店登録のためのインスタンス生成(hiddenでいるから)
+    @restaurant_form = RestaurantForm.new
   end
 
   # シェアページ_tag_カテゴリー検索
   def search_category
-    # （サイドバー）
+    # サイドバー
     @following_users = current_user.followings
     @follower_users = current_user.followers
     @restaurant_all = []

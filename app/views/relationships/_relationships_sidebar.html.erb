@@ -6,7 +6,6 @@
 
     <div class="reftaurant-search">      
       <h1>探す</h1>
-
       <div class="search-from-name">
         <h2>店名から探す</h2>
         <%= form_with(url: search_user_relationships_path(current_user.id), local: true, method: :get, class: "search-form") do |form| %>
@@ -14,7 +13,6 @@
           <%= form.submit "検索", class: "search-btn" %>
         <% end %>
       </div>
-
       <div class="search-from-station">
         <h2>駅から探す</h2>
         <div class="station-list">
@@ -44,11 +42,11 @@
         
         <% if @following_users.exists? %>
           <ul>
-            <li class="follow">
-              <% @following_users.each do |user| %>
+            <% @following_users.each do |user| %>
+              <li class="follow">
                 <%= user.group_name %>
-              <% end %>
-            </li>
+              </li>
+            <% end %>
           </ul>
         <% else %>
           <p>ユーザーはいません</p>
@@ -60,11 +58,11 @@
         <div class="user-follow-list">
         <% if @follower_users.exists? %>
           <ul>
-            <li class="follow">
-              <% @follower_users.each do |user| %>
+            <% @follower_users.each do |user| %>
+              <li class="follow">
                 <%= user.group_name %>
-              <% end %>
-            </li>
+              </li>
+            <% end %>
           </ul>
         <% else %>
           <p>ユーザーはいません</p>
