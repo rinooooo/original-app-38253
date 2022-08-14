@@ -11,6 +11,7 @@
       </div>
     
       <div class="middle">
+        <div class="tag-page-name">@<%= @tag.tag_name %></div>
         <div class="categoly-search-form">
           <%# 絞り込みを押すとrestaurants/search_categoryアクション→restaurants/search_categoryビューへ %>
           <%= search_form_for @p, url: tag_tags_searchcategory_path(@tag.id) do |f| %>

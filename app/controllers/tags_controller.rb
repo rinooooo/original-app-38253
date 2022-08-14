@@ -57,6 +57,8 @@ class TagsController < ApplicationController
   # シェアページ_tag_カテゴリー検索
   def search_category
     # サイドバー
+    @following_users = current_user.followings
+    @follower_users = current_user.followers
     @restaurant_all = []
     if @following_users.present?
       @following_users.each do |user|
@@ -72,8 +74,6 @@ class TagsController < ApplicationController
       tags.concat(following_user_tags)
     end
     @tags = tags.uniq
-    @following_users = current_user.followings
-    @follower_users = current_user.followers
     # マップ、レストランの表示レストラン
     @tag = Tag.find(params[:tag_id])
     @restaurant_ransack = @p.result
