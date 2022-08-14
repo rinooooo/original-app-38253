@@ -1,13 +1,9 @@
-<%# tag名押すと、tag/show.js.erbが発動してここがtags/_show.html.erbに入れ替わる（middleに駅を削除ボタンが追加されてる） %>
-
   <div id="main-map">
-    <%# restaurantsを一つづつ取り出してperformanceを取得、マップに表示！ %>
     <%= render partial: "restaurants/map", locals: { restaurants: @restaurants } %>
   </div>
     
   <div class="middle">
     <div class="categoly-search-form">
-      <%# 絞り込みを押すとrestaurants/search_categoryアクション→restaurants/search_categoryビューへ %>
       <%= search_form_for p, url: restaurants_searchcategory_path do |f| %>
         <%= f.collection_select :category_id_eq, Category.all, :id, :name, {}, {class:"select-box", id:"shop-category"} %>
         <%= f.submit '絞り込み' %>
@@ -16,7 +12,6 @@
   </div>
   
   <div id="restaurants">
-    <%# restaurantsを一つづつ取り出してperformanceを取得、マップに表示！ %>
     <%= render partial: "restaurants/restaurant", locals: { restaurants: @restaurants } %>
   </div>
   
