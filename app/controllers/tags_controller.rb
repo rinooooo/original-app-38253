@@ -42,8 +42,9 @@ class TagsController < ApplicationController
     @tag_array = []
     @restaurant_all.each do |restaurant|
       next unless restaurant.user_id == current_user.id
-        tags = restaurant.tags
-        tags.each do |tag|
+
+      tags = restaurant.tags
+      tags.each do |tag|
         @tag_array.push(tag)
       end
     end

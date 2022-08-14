@@ -9,7 +9,6 @@ class RestaurantsController < ApplicationController
   before_action :restaurant_form, only: [:index, new, :update, :show, :search, :search_category]
   # コメントブロック
   before_action :comment_form, only: [:show, :update]
-  
 
   def index
     @restaurants = current_user.restaurants
@@ -154,7 +153,7 @@ class RestaurantsController < ApplicationController
     # フォローフォロワー
     @following_users = current_user.followings
     @follower_users = current_user.followers
-    #新規友達フォローページのインスタンス変数
+    # 新規友達フォローページのインスタンス変数
     @users_all = User.all
     @users = @users_all.where.not(id: current_user.id)
   end

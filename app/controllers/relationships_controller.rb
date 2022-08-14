@@ -53,6 +53,7 @@ class RelationshipsController < ApplicationController
   end
 
   private
+
   def create_searching_object
     @p = Restaurant.ransack(params[:q])
   end
