@@ -6,6 +6,10 @@
     <%= link_to "戻る", remote: true %>
   </div>
 
+  <div id="comments_error">
+    <%= render 'devise/shared/error_messages', resource: restaurant_form %>
+  </div>
+
 
   <div class="form">
   <div class="weight-bold-text self-input">

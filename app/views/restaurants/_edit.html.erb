@@ -6,6 +6,10 @@
     <%= link_to "戻る", remote: true %>
   </div>
 
+  <div id="comments_error_edit">
+    <%= render 'devise/shared/error_messages', resource: @restaurant_form_edit %>
+  </div>
+
   <div class="form">
   <%= form_with model: restaurant_form, url: restaurant_path(restaurant.id), method: :patch, remote: true do |f| %>
 

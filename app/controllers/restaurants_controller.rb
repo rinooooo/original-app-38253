@@ -21,7 +21,6 @@ class RestaurantsController < ApplicationController
     # インスタンス生成
     @restaurant_form = RestaurantForm.new(restaurant_form_params)
     # 新規登録
-    respond_to do |format|
       if @restaurant_form.valid?
         @restaurant_form.save
         @restaurants = current_user.restaurants
@@ -37,20 +36,12 @@ class RestaurantsController < ApplicationController
         @tags = @tag_array.uniq
         @following_users = current_user.followings
         @follower_users = current_user.followers
-        format.js
       else
-        format.html { render :new }
+        render 'restaurants/error'
       end
-    end
   end
 
   def edit
-    # 編集画面にタグ名入れようとして（初期値として） 書いたけどダメだった、、
-    tag_array = []
-    @restaurant.tags.each do |tag|
-      tag_array.push(tag.tag_name)
-    end
-    @tag_join = tag_array.join(',')
     # 編集のインスタンス生成
     @restaurant_form_edit = RestaurantForm.new(shop_name: @restaurant.shop_name, category_id: @restaurant.category_id,
                                                phone_number: @restaurant.phone_number, url: @restaurant.url, tag_name: @tag_join)
@@ -62,7 +53,7 @@ class RestaurantsController < ApplicationController
     # imageが空でも元々の登録画像が保持されるように（もともと画像登録されてない場合はそのまま）
     @restaurant_form_edit.image = @restaurant.image.blob if @restaurant_form_edit.image.nil? && @restaurant.image.attached?
     # 更新
-    respond_to do |format|
+    #respond_to do |format|
       if @restaurant_form_edit.valid?
         @restaurant_form_edit.update
         @restaurant = Restaurant.find(params[:id])
@@ -80,11 +71,11 @@ class RestaurantsController < ApplicationController
         @tags = @tag_array.uniq
         @following_users = current_user.followings
         @follower_users = current_user.followers
-        format.js
+        #format.js
       else
-        format.html { render :edit }
+        render 'restaurants/error_edit'
       end
-    end
+    #end
   end
 
   def destroy
