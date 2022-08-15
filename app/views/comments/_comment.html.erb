@@ -1,5 +1,6 @@
 <% comments.each do |comment| %>
   <div class="form-input">
     <%= comment.comment%>
+    <%= link_to "削除", restaurant_comment_path(comment.restaurant.id, comment.id), method: :delete, remote: true %>
   </div>
 <% end %>
