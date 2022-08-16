@@ -55,3 +55,9 @@
 .submit-btn {
   margin-top: 15px;
 }
+
+
+/* タブレット表示時 */
+@media (max-width: 1024px) {
+
+}

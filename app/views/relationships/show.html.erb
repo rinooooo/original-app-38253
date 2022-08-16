@@ -3,7 +3,7 @@
     <div id="sidebar">
       <%= render partial: "relationships_sidebar", locals: { tags: @tags, restaurants: @restaurants } %>
     </div>
-    <div id="relationships-main">
+    <div id="relationships-main", class="relationships-main">
       <%= render partial: "relationships_main", locals: { p: @p } %>
     </div>
     <%= render partial: "relationships/new", locals: { users: @users } %>

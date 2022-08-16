@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OriginalApp38253</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -14,9 +15,11 @@
     <header>
       <div class="header-left">
         <%= link_to image_tag("header-title.png"), root_path %>
-        <div class="heart-button"><%= link_to image_tag("header-a.png") %></div>
-        <div class="heart-button-blue"><%= link_to image_tag("header-b.png") %></div>
-        <div class="heart-button-yellow"><%= link_to image_tag("header-c.png") %></div>
+        <div class="person">
+          <div class="heart-button"><%= link_to image_tag("header-a.png") %></div>
+          <div class="heart-button-blue"><%= link_to image_tag("header-b.png") %></div>
+          <div class="heart-button-yellow"><%= link_to image_tag("header-c.png") %></div>
+        </div>
       </div>
       <div class="header-right">
         <% if user_signed_in? %>

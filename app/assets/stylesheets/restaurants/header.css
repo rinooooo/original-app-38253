@@ -196,3 +196,43 @@ header {
     animation: heart 1.5s infinite ease-out;
   }
 }
+
+
+
+/* タブレット表示時 */
+@media (max-width: 599px) {
+  header {
+    height: 400px;
+    width: 100%;
+    background-color: #EEEBEB;
+    align-items: center;
+    display: block;
+  }
+  .header-left {
+    height: 400px;
+    margin-left: 50px;
+    position: relative;
+  }
+  .header-left img {
+    height: 400px;
+    display: flex;
+  }
+  .heart-button-blue, .heart-button-yellow {
+    visibility: hidden;
+  }
+  .header-right {
+    margin: 0 auto;
+    position: absolute;
+    top: 100px;
+    left: 700px;
+    width: 200px;
+  }
+  .header-right a {
+    height: 30px;
+    width: 50px;
+    font-size: 10px;
+    line-height: 30px;
+  }
+}
+
+
