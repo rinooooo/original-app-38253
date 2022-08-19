@@ -130,3 +130,20 @@ table td {
     height: 30px;
   }
 }
+
+/* タブレット表示時 */
+@media (max-width: 520px) {
+.btns {
+  margin-top: 15px;
+  height: 25px;
+}
+.btns img {
+  height: 25px;
+}
+.count {
+  margin: 0 5px 0 0;
+  height: 25px;
+  line-height: 25px;
+  font-size: 10px;
+}
+}
