@@ -4,10 +4,11 @@ class RestaurantsController < ApplicationController
   before_action :create_searching_object, only: [:index, :search_category]
   # sidebarのインスタンス変数定義(友達登録用インスタンス変数含む)
   before_action :sidebar_def, only: [:index, :show, :search, :search_category]
+  # URI内のIDからレコードを取得する
   before_action :find_restaurant, only: [:edit, :update, :destroy, :show]
   # 店登録のためのインスタンス生成(hiddenでいるから)
   before_action :restaurant_form, only: [:index, new, :update, :show, :search, :search_category]
-  # コメントブロック
+  # コメント
   before_action :comment_form, only: [:show, :update]
 
   def index
@@ -21,24 +22,24 @@ class RestaurantsController < ApplicationController
     # インスタンス生成
     @restaurant_form = RestaurantForm.new(restaurant_form_params)
     # 新規登録
-      if @restaurant_form.valid?
-        @restaurant_form.save
-        @restaurants = current_user.restaurants
-        @tag_array = []
-        @restaurants.each do |restaurant|
-          next unless restaurant.user_id == current_user.id
+    if @restaurant_form.valid?
+      @restaurant_form.save
+      @restaurants = current_user.restaurants
+      @tag_array = []
+      @restaurants.each do |restaurant|
+        next unless restaurant.user_id == current_user.id
 
-          tags = restaurant.tags
-          tags.each do |tag|
-            @tag_array.push(tag)
-          end
+        tags = restaurant.tags
+        tags.each do |tag|
+          @tag_array.push(tag)
         end
-        @tags = @tag_array.uniq
-        @following_users = current_user.followings
-        @follower_users = current_user.followers
-      else
-        render 'restaurants/error'
       end
+      @tags = @tag_array.uniq
+      @following_users = current_user.followings
+      @follower_users = current_user.followers
+    else
+      render 'restaurants/error'
+    end
   end
 
   def edit
@@ -53,29 +54,26 @@ class RestaurantsController < ApplicationController
     # imageが空でも元々の登録画像が保持されるように（もともと画像登録されてない場合はそのまま）
     @restaurant_form_edit.image = @restaurant.image.blob if @restaurant_form_edit.image.nil? && @restaurant.image.attached?
     # 更新
-    #respond_to do |format|
-      if @restaurant_form_edit.valid?
-        @restaurant_form_edit.update
-        @restaurant = Restaurant.find(params[:id])
-        @performance = @restaurant.performance
-        @restaurant_all = current_user.restaurants
-        @tag_array = []
-        @restaurant_all.each do |restaurant|
-          next unless restaurant.user_id == current_user.id
+    if @restaurant_form_edit.valid?
+      @restaurant_form_edit.update
+      @restaurant = Restaurant.find(params[:id])
+      @performance = @restaurant.performance
+      @restaurant_all = current_user.restaurants
+      @tag_array = []
+      @restaurant_all.each do |restaurant|
+        next unless restaurant.user_id == current_user.id
 
-          tags = restaurant.tags
-          tags.each do |tag|
-            @tag_array.push(tag)
-          end
+        tags = restaurant.tags
+        tags.each do |tag|
+          @tag_array.push(tag)
         end
-        @tags = @tag_array.uniq
-        @following_users = current_user.followings
-        @follower_users = current_user.followers
-        #format.js
-      else
-        render 'restaurants/error_edit'
       end
-    #end
+      @tags = @tag_array.uniq
+      @following_users = current_user.followings
+      @follower_users = current_user.followers
+    else
+      render 'restaurants/error_edit'
+    end
   end
 
   def destroy
