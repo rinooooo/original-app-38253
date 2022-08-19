@@ -1,13 +1,16 @@
+body {
+  background-color: #EEEBEB;
+}
+
 /* wrapper */
 .wrapper {
   width: 100%;
-  
   background-color: #EEEBEB;
   padding-bottom: 120px;
 }
 .main-wrapper {
   width: 100%;
-  padding: 0 120px;
+  padding-left: 120px;
   display: flex;
   box-sizing: border-box;
 }
