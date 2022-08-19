@@ -5,17 +5,52 @@ header {
   background-color: #EEEBEB;
   display: flex;
   align-items: center;
+  justify-content: left;
 }
 .header-left {
-  height: 260px;
+  max-width: 80%;
+  height: 100%;
   margin-left: 50px;
   display: flex;
 }
+.header-left a {
+  max-width: 67%;
+  height: 100%;
+}
+.header-left img {
+  max-width: 100%;
+}
+.person {
+  width: 33%;
+  height: 100%;
+}
+.heart-button {
+  width: 31%;
+  max-height: 100%;
+}
+.heart-button-blue {
+  width: 25%;
+  max-height: 100%;
+}
+.heart-button-yellow {
+  width: 36%;
+  max-height: 100%;
+}
+.heart-button img, .heart-button-blue img, .heart-button-yellow img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.header-right {
+  max-width: 20%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
 .header-right a {
+  max-height: 40px;
   display: inline-block;
   background-color: #FFAD32;
-  line-height: 40px;
-  padding: 2px 20px;
+  padding: 2px 10px;
   margin-right: 15px;
   color: white;
   text-decoration: none;
@@ -200,39 +235,75 @@ header {
 
 
 /* タブレット表示時 */
-@media (max-width: 599px) {
+@media (max-width: 960px) {
   header {
-    height: 400px;
+    height: 195px;
     width: 100%;
     background-color: #EEEBEB;
-    align-items: center;
-    display: block;
-  }
-  .header-left {
-    height: 400px;
-    margin-left: 50px;
-    position: relative;
-  }
-  .header-left img {
-    height: 400px;
     display: flex;
-  }
-  .heart-button-blue, .heart-button-yellow {
-    visibility: hidden;
+    align-items: center;
+    justify-content: left;
   }
   .header-right {
-    margin: 0 auto;
-    position: absolute;
-    top: 100px;
-    left: 700px;
-    width: 200px;
+    max-width: 20%;
+    height: 100%;
+    display: block;
+    padding-top: 140px;
   }
   .header-right a {
-    height: 30px;
-    width: 50px;
-    font-size: 10px;
-    line-height: 30px;
+    display: block;
+    max-height: 40px;
+    background-color: #FFAD32;
+    padding: 2px 10px;
+    color: white;
+    text-decoration: none;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    font-size: 15px
   }
 }
 
 
+/* スマホ表示時 */
+@media (max-width: 520px) {
+  header {
+    height: 130px;
+    width: 100%;
+    background-color: #EEEBEB;
+    display: block;
+  }
+  .header-left {
+    max-width: 100%;
+    height: 110px;
+    margin-left: 10px;
+  }
+  .header-left a {
+    max-width: 100%;
+    height: 100%;
+  }
+  .header-left img {
+    max-width: 100%;
+    height: 100%;
+  }
+  .person {
+    display: none;
+  }
+  .header-right {
+    max-width: 100%;
+    height: 30px;
+    display: flex;
+    padding-top: 0;
+    padding-left: 20px;
+  }
+  .header-right a {
+    display: inline-block;
+    height: 15px;
+    line-height: 15px;
+    background-color: #FFAD32;
+    padding: 2px 10px;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 10px
+  }
+}

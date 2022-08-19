@@ -21,6 +21,12 @@
 }
 .edit-destroy a {
   font-size: 18px;
+  text-decoration: none;
+  color: black;
+}
+.edit-destroy a:hover {
+  color: gray;
+  border-bottom: solid 1px gray;
 }
 .show-img-map {
   display: flex;
@@ -33,7 +39,7 @@
   display: inline-block;
 }
 .show-map {
-  width: 300px;
+  width: 400px;
   height: 200px;
   background-color: aquamarine;
 }
@@ -81,17 +87,193 @@
   height: 160px;
   overflow: scroll;
   font-size: 20px;
-  
   box-sizing: border-box;
+}
+.form-input a {
+  color: black;
+  text-decoration: none;
+}
+.form-input a:hover {
+  border-bottom: solid 1px gray;
+  color: gray;
+}
+.comment-comment {
+  width: 500px;
+  height: 30px;
 }
 table td {
   word-break: break-all;
   padding: 10px;
   font-size: 18px;
 }
-
+.show-url a, .show-phone a {
+  color: blue;
+  text-decoration: none;
+}
+.show-url a:hover, .show-phone a:hover {
+  color: gray;
+  border-bottom: solid 1px gray;
+}
 
 /* タブレット表示時 */
-@media (max-width: 1024px) {
+@media (max-width: 960px) {
+  .show-content {
+    width: 600px;
+    padding: 35px 80px;
+    background-color: #FFFFFF;
+  }
+  .edit-destroy {
+    display: flex;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .line-it-button {
+    margin-top: 3px;
+  }
+  .edit-destroy a {
+    font-size: 15px;
+    text-decoration: none;
+    color: black;
+    margin-right: 10px;
+  }
+  .edit-destroy a:hover {
+    color: gray;
+    border-bottom: solid 1px gray;
+  }
+  .show-map {
+    width: 350px;
+    height: 200px;
+    background-color: aquamarine;
+  }
+  .comment-comment {
+    width: 400px;
+    height: 30px;
+  }
+}
 
+/* スマホ表示時 */
+@media (max-width: 520px) {
+  #sidebar {
+    display: none;
+  }
+  .show-content {
+    width: 280px;
+    padding: 10px 20px;
+    background-color: #FFFFFF;
+    margin-top: 10px;
+  }
+  .comment-comment {
+    width: 150px;
+    height: 10px;
+  }
+  .btns {
+    margin-top: 15px;
+    height: 25px;
+  }
+  .btns img {
+    height: 25px;
+  }
+  .count {
+    margin: 0 5px 0 0;
+    height: 25px;
+    line-height: 25px;
+    font-size: 10px;
+  }
+  .show-restaurant-name {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  .user_group_name {
+    font-size: 10px;
+    text-align: right;
+  }
+  .edit-destroy {
+    display: flex;
+    text-align: center;
+  }
+  .edit-destroy a {
+    font-size: 10px;
+    text-decoration: none;
+    color: black;
+    margin-right: 10px;
+    margin-top: 3px;
+  }
+  .edit-destroy a:hover {
+    color: gray;
+    border-bottom: solid 1px gray;
+  }
+  .show-img-map {
+    display: flex;
+    justify-content: space-between;
+  }
+  .show-image {
+    height: 100px;
+  }
+  .show-image img {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+  }
+  .show-map {
+    width: 160px;
+    height: 100px;
+    background-color: aquamarine;
+  }
+  .show-evaluation-content {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    width: 100%;
+    margin: 0;
+  }
+  .show-btns {
+    width: 300px;
+    margin-left: 0;
+    margin-top: 0;
+  }
+  .show-evaluation {
+    background-color: aquamarine;
+    height: 60px;
+    width: 100%;
+    display: flex;
+  }
+  .show-comment {
+    width: 100%;
+    height: 180px;
+    background-color: beige;
+    margin-top: 20px;
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .comments {
+    width: 100%;
+    height: 120px;
+    overflow: scroll;
+    font-size: 20px;
+    box-sizing: border-box;
+  }
+  .form-input a {
+    color: black;
+    text-decoration: none;
+  }
+  .form-input a:hover {
+    border-bottom: solid 1px gray;
+    color: gray;
+  }
+
+  table td {
+    word-break: break-all;
+    padding: 10px;
+    font-size: 10px;
+  }
+  .show-url a, .show-phone a {
+    color: blue;
+    text-decoration: none;
+  }
+  .show-url a:hover, .show-phone a:hover {
+    color: gray;
+    border-bottom: solid 1px gray;
+  }
+  
 }

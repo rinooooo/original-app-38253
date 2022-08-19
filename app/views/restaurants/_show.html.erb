@@ -7,7 +7,7 @@
         <%= link_to image_tag("white.jpg", class: "white-img", size: '200x200') %>
       <% end %>
     </div>
-    <!--div class="show-map", id="map">
+    <div class="show-map", id="map">
           <script>
             let map
               function initMap(){
@@ -28,7 +28,7 @@
               }
           </script>
           <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API'] %>&callback=initMap" async defer></script>
-    </div-->
+    </div>
   </div>
     
 
@@ -49,11 +49,11 @@
         <td width="20%">住所</td>
         <td width="80%"><%= performance.address %></td>
       </tr>
-      <tr>
+      <tr class="show-url">
         <td>URL</td>
         <td><%= link_to restaurant.url, "#{restaurant.url}" %></td>
       </tr>
-      <tr>
+      <tr class="show-phone">
         <td>電話番号</td>
         <td><%= link_to restaurant.phone_number, "tel:" + restaurant.phone_number %></td>
       </tr>

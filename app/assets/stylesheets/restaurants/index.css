@@ -1,7 +1,7 @@
 /* wrapper */
 .wrapper {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: #EEEBEB;
   padding-bottom: 120px;
 }
@@ -9,6 +9,7 @@
   width: 100%;
   padding: 0 120px;
   display: flex;
+  box-sizing: border-box;
 }
 
 
@@ -22,6 +23,14 @@
 }
 .sidebar h1 {
   font-size: 30px;
+}
+.sidebar a {
+  text-decoration: none;
+  color: black;
+}
+.sidebar a:hover {
+  color: gray;
+  border-bottom: solid 1px gray;
 }
 .sidebar h2 {
   font-size: 20px;
@@ -44,14 +53,16 @@
 .station-list, .user-follow-list {
   margin-left: 50px
 }
+.tag a {
+  text-decoration: none;
+}
 .tag {
   margin: 5px 0 10px 0;
 }
 
-
 /* main */
 #main, .relationships-main {
-  width: calc(100% - 240px - 280px);
+  width: 100%;
 }
 
 /* map */
@@ -62,9 +73,6 @@
   opacity: 70%;
   position: relative;
   padding: 0 25px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 .google-map {
   width: 500px;
@@ -99,6 +107,65 @@
   margin-right: 10px;
   font-weight: bold;
 }
+/* ハンバーガー */
+.menu-btn {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  height: 50px;
+  width: 50px;
+  justify-content: center;
+  align-items: center;
+  z-index: 90;
+  background-color: #FFAD32;
+}
+.menu-btn span,
+.menu-btn span:before,
+.menu-btn span:after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 25px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  position: absolute;
+}
+.menu-btn span:before {
+  bottom: 8px;
+}
+.menu-btn span:after {
+  top: 8px;
+}
+#menu-btn-check:checked ~ .menu-btn span {
+  background-color: rgba(255, 255, 255, 0);/*メニューオープン時は真ん中の線を透明にする*/
+}
+#menu-btn-check:checked ~ .menu-btn span::before {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+#menu-btn-check:checked ~ .menu-btn span::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+#menu-btn-check {
+  display: none;
+}
+.menu-content {
+  width: 300px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 80;
+  background-color: #FFAD32;
+  transition: all 0.5s;/*アニメーション設定*/
+  display: none;
+}
+#menu-btn-check:checked ~ .menu-content {
+  display: block;
+}
+
 
 /* restaurant */
 .restaurant-list {
@@ -119,6 +186,7 @@
   margin-top: 50px;
   width: 300px;
   height: 200px;
+  opacity: 80%;
 }
 .white-img {
   height: 200px;
@@ -131,25 +199,23 @@
 }
 .overlay-restaurant-image p {
   position: absolute;
-  top: 200px;
+  top: 235px;
   left: 200px;
   width: 100px;
 }
 .restaurant-name {
-  font-size: 35px;
+  font-size: 30px;
+  font-weight: bold;
   color: black;
   text-decoration: none;
-}
-.restaurant-checkbox {
-  width: 30px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  text-shadow: -2px -2px 0 white, -2px 0 0 white, -2px 2px 0 white,
+                  0 -2px 0 white,                  0 2px 0 white,
+                2px -2px 0 white,  2px 0 0 white,  2px 2px 0 white;
 }
 .btns {
   width: 311px;
   display: flex;
-  margin-top: 15px;
+  margin-top: 25px;
   margin-left: 15px;
 }
 .btns img {
@@ -159,14 +225,188 @@
   display: flex;
 }
 .count {
-  margin: 0 20px 0 0;
-  height: 40px;
-  line-height: 40px;
+  color: black; 
 }
 
-
+@media (min-width: 960px) {
+  .menu-btn {
+    display: none;
+  }
+}
 
 /* タブレット表示時 */
-@media (max-width: 1024px) {
- 
+@media (max-width: 960px) {
+body {
+  margin: 0;
+  background-color: #EEEBEB;
 }
+.wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: #EEEBEB;
+  padding-bottom: 120px;
+}
+.main-wrapper {
+  width: 100%;
+  padding: 0 30px;
+  display: flex;
+  box-sizing: border-box;
+}
+#sidebar {
+  display: none;
+}
+.sidebar {
+  padding-left: 20px;
+}
+#main, .relationships-main {
+  width: 100%;
+}
+.map {
+  max-width: 85%;
+  height: 450px;
+  background-color: #FFFFFF;
+  opacity: 70%;
+  position: relative;
+  padding-right: 30px;
+  padding-left: 0;
+}
+.google-map {
+  max-width: 50%;
+  height: 400px;
+  background: rgba(198, 245, 186, 0.76);
+}
+}
+
+
+
+/* スマホ表示時 */
+@media (max-width: 520px) {
+body {
+  margin: 0;
+  background-color: #EEEBEB;
+}
+#sidebar {
+  display: none;
+}
+.map {
+  display: none;
+}
+
+/* wrapper */
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  background-color: #EEEBEB;
+  padding-bottom: 20px;
+}
+.main-wrapper {
+  width: 100%;
+  height: 100vh;
+  padding: 0 20px;
+  display: flex;
+  box-sizing: border-box;
+}
+
+/* middle */
+.middle {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+.select-box {
+  width: 80px;
+  height: 20px;
+}
+.select-box input {
+  font-size: 10px;
+}
+.tag-page-name {
+  font-size: 10px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+.menu-btn {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  display: flex;
+  height: 40px;
+  width: 40px;
+  justify-content: center;
+  align-items: center;
+  z-index: 90;
+  background-color: #FFAD32;
+}
+
+/* restaurant */
+.restaurant-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 10px;
+}
+.restaurant-content {
+  width: 150px;
+  height: 170px;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  opacity: 80%;
+  position: relative;
+}
+.restaurant-image {
+  text-align: center;
+  margin-top: 23px;
+  width: 100%;
+  height: 100px;
+  opacity: 80%;
+}
+.restaurant-image img {
+  width: 100px;
+  height: 100px;
+}
+.white-img {
+  height: 100px;
+  width: 100px;
+}
+.overlay-restaurant-image {
+  position: absolute;
+  top: 0px;
+  left: 15px;
+}
+.overlay-restaurant-image p {
+  position: absolute;
+  top: 115px;
+  left: 85px;
+  font-size: 10px;
+  width: 100px;
+}
+.restaurant-name {
+  font-size: 15px;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+  text-shadow: -2px -2px 0 white, -2px 0 0 white, -2px 2px 0 white,
+                  0 -2px 0 white,                  0 2px 0 white,
+                2px -2px 0 white,  2px 0 0 white,  2px 2px 0 white;
+}
+.btns {
+  width: 150px;
+  display: flex;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+.btns img {
+  height: 20px;
+}
+.btn {
+  display: flex;
+}
+.btns img {
+  height: 10px;
+}
+.count {
+  color: black; 
+}
+
+}
+
