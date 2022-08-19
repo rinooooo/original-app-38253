@@ -4,7 +4,7 @@
   height: 100%;
   position: fixed;
   top: 0;
-  right: 65px;
+  right: 0;
   z-index: 80;
   background-color: lightpink;
 }
@@ -13,7 +13,16 @@
   height: 100%;
   position: fixed;
   top: 0;
-  right: 65px;
+  right: 0;
+  z-index: 80;
+  background-color: lightpink;
+}
+.menu-content-show {
+  width: 300px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
   z-index: 80;
   background-color: lightpink;
 }
@@ -25,7 +34,7 @@
     height: 100%;
     position: fixed;
     top: 0;
-    right: 40px;
+    right: 0;
     z-index: 80;
     background-color: lightpink;
   }
@@ -34,7 +43,16 @@
     height: 100%;
     position: fixed;
     top: 0;
-    right: 40px;
+    right: 0;
+    z-index: 80;
+    background-color: lightpink;
+  }
+  .menu-content-show {
+    width: 150px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
     z-index: 80;
     background-color: lightpink;
   }

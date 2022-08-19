@@ -109,8 +109,8 @@
 /* ハンバーガー */
 .menu-btn {
   position: fixed;
-  top: 10px;
-  right: 70px;
+  top: 0;
+  right: 0;
   display: flex;
   height: 50px;
   width: 50px;
@@ -249,6 +249,7 @@ body {
   width: 100%;
   padding: 0 30px;
   display: flex;
+  box-sizing: border-box;
 }
 #sidebar {
   display: none;
@@ -325,8 +326,8 @@ body {
 }
 .menu-btn {
   position: fixed;
-  top: 10px;
-  right: 40px;
+  top: 0px;
+  right: 0px;
   display: flex;
   height: 40px;
   width: 40px;

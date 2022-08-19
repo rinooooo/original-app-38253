@@ -76,7 +76,7 @@
 }
 
 /* スマホ表示時 */
-@media (max-width: 960px) {
+@media (max-width: 520px) {
   .restaurant-registration, .friend-registration {
     width: 250px;
     height: 500px;
