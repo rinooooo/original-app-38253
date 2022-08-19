@@ -21,6 +21,12 @@
 }
 .edit-destroy a {
   font-size: 18px;
+  text-decoration: none;
+  color: black;
+}
+.edit-destroy a:hover {
+  color: gray;
+  border-bottom: solid 1px gray;
 }
 .show-img-map {
   display: flex;
@@ -81,15 +87,33 @@
   height: 160px;
   overflow: scroll;
   font-size: 20px;
-  
   box-sizing: border-box;
+}
+.form-input a {
+  color: black;
+  text-decoration: none;
+}
+.form-input a:hover {
+  border-bottom: solid 1px gray;
+  color: gray;
+}
+.comment-comment {
+  width: 500px;
+  height: 30px;
 }
 table td {
   word-break: break-all;
   padding: 10px;
   font-size: 18px;
 }
-
+.show-url a, .show-phone a {
+  color: blue;
+  text-decoration: none;
+}
+.show-url a:hover, .show-phone a:hover {
+  color: gray;
+  border-bottom: solid 1px gray;
+}
 
 /* タブレット表示時 */
 @media (max-width: 1024px) {

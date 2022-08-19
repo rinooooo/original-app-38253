@@ -49,11 +49,11 @@
         <td width="20%">住所</td>
         <td width="80%"><%= performance.address %></td>
       </tr>
-      <tr>
+      <tr class="show-url">
         <td>URL</td>
         <td><%= link_to restaurant.url, "#{restaurant.url}" %></td>
       </tr>
-      <tr>
+      <tr class="show-phone">
         <td>電話番号</td>
         <td><%= link_to restaurant.phone_number, "tel:" + restaurant.phone_number %></td>
       </tr>

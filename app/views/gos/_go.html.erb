@@ -1,7 +1,6 @@
-
-<%= link_to restaurant_gos_path(restaurant.id), method: :post, remote: true do %>
-  <div class="btn">
+<div class="btn">
+  <%= link_to restaurant_gos_path(restaurant.id), method: :post, remote: true do %>
     <%= image_tag("want-go.png") %>
-    <p class="count"><%= restaurant.gos.count %></p>
-  </div>
-<% end %>
+  <% end %>
+  <p class="count"><%= restaurant.gos.count %></p>
+</div>
