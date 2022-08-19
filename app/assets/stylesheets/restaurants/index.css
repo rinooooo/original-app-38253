@@ -1,7 +1,7 @@
 /* wrapper */
 .wrapper {
   width: 100%;
-  height: 100vh;
+  height: 100％;
   background-color: #EEEBEB;
   padding-bottom: 120px;
 }
@@ -23,6 +23,14 @@
 .sidebar h1 {
   font-size: 30px;
 }
+.sidebar a {
+  text-decoration: none;
+  color: black;
+}
+.sidebar a:hover {
+  color: gray;
+  border-bottom: solid 1px gray;
+}
 .sidebar h2 {
   font-size: 20px;
 }
@@ -43,6 +51,9 @@
 }
 .station-list, .user-follow-list {
   margin-left: 50px
+}
+.tag a {
+  text-decoration: none;
 }
 .tag {
   margin: 5px 0 10px 0;
@@ -119,6 +130,7 @@
   margin-top: 50px;
   width: 300px;
   height: 200px;
+  opacity: 80%;
 }
 .white-img {
   height: 200px;
@@ -131,25 +143,23 @@
 }
 .overlay-restaurant-image p {
   position: absolute;
-  top: 200px;
+  top: 235px;
   left: 200px;
   width: 100px;
 }
 .restaurant-name {
-  font-size: 35px;
+  font-size: 30px;
+  font-weight: bold;
   color: black;
   text-decoration: none;
-}
-.restaurant-checkbox {
-  width: 30px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  text-shadow: -2px -2px 0 white, -2px 0 0 white, -2px 2px 0 white,
+                  0 -2px 0 white,                  0 2px 0 white,
+                2px -2px 0 white,  2px 0 0 white,  2px 2px 0 white;
 }
 .btns {
   width: 311px;
   display: flex;
-  margin-top: 15px;
+  margin-top: 25px;
   margin-left: 15px;
 }
 .btns img {
