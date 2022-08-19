@@ -5,7 +5,7 @@
   padding: 30px;
   display: none;
   position: fixed;
-  left: 450px;
+  left: 350px;
   top: 300px;
   z-index: 100;
   overflow: scroll;
@@ -58,6 +58,19 @@
 
 
 /* タブレット表示時 */
-@media (max-width: 1024px) {
-
+@media (max-width: 960px) {
+  .restaurant-registration, .friend-registration {
+    width: 500px;
+    height: 500px;
+    background-color: #FFFFFF;
+    padding: 30px;
+    display: none;
+    position: fixed;
+    left: 150px;
+    top: 300px;
+    z-index: 100;
+    overflow: scroll;
+    border-radius: 10px;
+    border: solid 10px lightgrey;
+  }
 }

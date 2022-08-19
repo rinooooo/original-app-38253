@@ -116,6 +116,17 @@ table td {
 }
 
 /* タブレット表示時 */
-@media (max-width: 1024px) {
-
+@media (max-width: 960px) {
+  .show-sidebar {
+    width: 200px;
+  }
+  .show-content {
+    width: 420px;
+    padding: 35px 50px;
+    background-color: #FFFFFF;
+  }
+  .comment-comment {
+    width: 200px;
+    height: 30px;
+  }
 }
