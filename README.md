@@ -6,9 +6,11 @@ Share Restaurant
 友人が登録した店と、自分が登録した店をまとめて表示することができるため、店選びの時間を短縮することができます。
 
 # URL
-https://share-restaurant-38253.herokuapp.com/
+http://3.114.188.138/
 
 # テスト用アカウント
+ゲストログイン可能です
+
 | user     | email    | password     |
 | -------- | -------- | ------------ |
 | user1    | 1@test   | test1111     |
@@ -22,11 +24,13 @@ https://share-restaurant-38253.herokuapp.com/
 - ログインユーザーが登録した店一覧が表示される
 
 店の登録
-- サイドバー登録する＋ボタンから店を登録する
+- サイドバーの登録するボタンから店を登録する
+- タブレット、スマートホンからアクセスする場合は、右上のメニューをクリックするとサイドバーが表示される
 
 友達追加
-- サイドバー友達リスト＋ボタンからユーザーをフォローする
-- フォローしたユーザーの登録した店はシェアページで見ることができる
+- サイドバーの友達追加ボタンからユーザーをフォローする
+- フォローユーザー一覧はサイドバーに表示される
+- フォローしたユーザーが登録した店はシェアページで見ることができる
 
 ## シェアページ
 - マイページサイドバーのシェアページをクリックする
@@ -34,9 +38,9 @@ https://share-restaurant-38253.herokuapp.com/
 
 ## 共通機能
 店探し
-- サイドバーの駅名から、駅店で店を探す
 - サイドバーの検索フォームから、店名で店を探す
-- カテゴリーを選択して店を絞る
+- サイドバーの駅名から、駅店で店を探す
+- カテゴリーを選択して表示されている中から店を絞る
 店詳細情報
 - 一覧表示の店名をクリックし、詳細ページで登録情報を確認する
 
@@ -51,16 +55,22 @@ https://share-restaurant-38253.herokuapp.com/
 - 店登録の簡易化
 
 &emsp; 店を登録する際、入力に手間がかかると気軽に登録できないため、食べログサイトの「送る」に記載している内容をコピー&ペーストすれば、店名・住所・電話番号・食べログURLが自動で入力で切る機能を追加しました。
+
 - 駅ごとに店を表示することができる
 
 &emsp; 私自身、友人と店選びをする際、駅を決めてからレストランを探すことが多いため、駅ごとにレストランを表示できる機能を追加しました。
+
 - line共有機能
 
 &emsp; アプリを利用していない友人にも店情報を共有できるように、line共有機能を追加しました。
+
 - Googleマップの表示
 
-&emsp; 視覚的に登録されている店を確認できるように、Googleマップ表示機能を追加しました。
- 
+&emsp; 視覚的に登録されている店を確認できるように、Googleマップ表示機能を追加しました。また、詳細ページにもGoogleマップを表示して、店に行く際に利用できるようにしました。
+
+- レスポンシブデザイン
+
+&emsp; スマートホンで利用することを想定して、スマートホン対応のデザインを追加しました。
  
 
 # 要件定義
@@ -70,81 +80,95 @@ https://docs.google.com/spreadsheets/d/1eEnprWBhlHt8YYFLLLEyMcp6rCqfiZ44ccCDMCSD
 ## ログイン機能
 GIF：ログインに成功し、マイページに遷移している様子
 
-[![Image from Gyazo](https://i.gyazo.com/867dcb7aac090be69b2caaac7d3a15d7.gif)](https://gyazo.com/867dcb7aac090be69b2caaac7d3a15d7)
+[![Image from Gyazo](https://i.gyazo.com/3f7e5e2fee5efbe86462555a77a84e5f.gif)](https://gyazo.com/3f7e5e2fee5efbe86462555a77a84e5f)
 
 ## 店登録機能
 GIF：登録が成功し、登録した店が追加されている様子（非同期）
 
-[![Image from Gyazo](https://i.gyazo.com/ad8da14d1b4d35f0388371d0d6e5e769.gif)](https://gyazo.com/ad8da14d1b4d35f0388371d0d6e5e769)
+[![Image from Gyazo](https://i.gyazo.com/59ce0bdee378db5169aca2c097c5fb9a.gif)](https://gyazo.com/59ce0bdee378db5169aca2c097c5fb9a)
 
 ## 自動入力機能
 GIF：店登録の際、食べログの情報を貼り付け、自動入力ボタンをクリックすると、店名・住所・電話番号・食べログURLのフォームに値が自動で入力されている様子（非同期）
-
-[![Image from Gyazo](https://i.gyazo.com/bb160036cd96989d2a9bbb5e5e1e2e1b.gif)](https://gyazo.com/bb160036cd96989d2a9bbb5e5e1e2e1b)
+[![Image from Gyazo](https://i.gyazo.com/4286277b58208bf59e46c107775b28e6.gif)](https://gyazo.com/4286277b58208bf59e46c107775b28e6)
 
 ## フォロー機能
 GIF：友達リスト+をクリックするとユーザー一覧が表示され、フォローするボタンをクリックするとフォローリストにユーザーが追加されている様子
 
-[![Image from Gyazo](https://i.gyazo.com/89261d03b625e279b05eb3bc0fd0b9c1.gif)](https://gyazo.com/89261d03b625e279b05eb3bc0fd0b9c1)
+[![Image from Gyazo](https://i.gyazo.com/0e4a991ad3937485e5ce255cb3f141f5.gif)](https://gyazo.com/0e4a991ad3937485e5ce255cb3f141f5)
 
 GIF：フォロー中のユーザーの横にはフォロー外すボタンが表示されており、クリックするとフォローリストからユーザーが削除されている様子
 
-[![Image from Gyazo](https://i.gyazo.com/1da295f2d2ec9842444fbe77edf9993d.gif)](https://gyazo.com/1da295f2d2ec9842444fbe77edf9993d)
+[![Image from Gyazo](https://i.gyazo.com/d4db27c2c9a51940014971803457bb4c.gif)](https://gyazo.com/d4db27c2c9a51940014971803457bb4c)
 
 ## 店名検索機能
 GIF：「ビーフ」と検索し、「ビーフ」を含むレストランのみ表示させている様子（シェアページ）
 
-[![Image from Gyazo](https://i.gyazo.com/876043a43d1e70ae4277a0d682c6dc82.gif)](https://gyazo.com/876043a43d1e70ae4277a0d682c6dc82)
+[![Image from Gyazo](https://i.gyazo.com/07c145d8f2edea60778d9229a7f05177.gif)](https://gyazo.com/07c145d8f2edea60778d9229a7f05177)
 
 ## 駅名検索機能
 GIF：横浜駅をクリックし、横浜駅で登録されたレストランを表示させている様子（シェアページ、非同期）
 
-[![Image from Gyazo](https://i.gyazo.com/7517a250d533ed1df80595897898201e.gif)](https://gyazo.com/7517a250d533ed1df80595897898201e)
+[![Image from Gyazo](https://i.gyazo.com/8bac673c9cf372d070b9e7efec5d363e.gif)](https://gyazo.com/8bac673c9cf372d070b9e7efec5d363e)
 
 ## カテゴリー検索機能
 GIF：プルダウンでフレンチを選択し、カテゴリーがフレンチの店のみ表示させている様子（シェアページ、横浜駅クリック後）
+[![Image from Gyazo](https://i.gyazo.com/5629c50374bc940ef683f8cf19033131.gif)](https://gyazo.com/5629c50374bc940ef683f8cf19033131)
 
-[![Image from Gyazo](https://i.gyazo.com/a6c499bd8d6449c5b979818bdd75f5ad.gif)](https://gyazo.com/a6c499bd8d6449c5b979818bdd75f5ad)
 
 ## いいね機能
 GIF：店のボックス内の行きたい・行ったボタンをクリックするとカウントが1増える様子（非同期）
 
-[![Image from Gyazo](https://i.gyazo.com/43cc7a9f84fbf8515dab03bcfbe620ea.gif)](https://gyazo.com/43cc7a9f84fbf8515dab03bcfbe620ea)
+[![Image from Gyazo](https://i.gyazo.com/09f83b9e167cc204b87123267405b32b.gif)](https://gyazo.com/09f83b9e167cc204b87123267405b32b)
 
 ### 詳細ページ
 GIF：店名をクリックすると店詳細ページに遷移する様子
 
-[![Image from Gyazo](https://i.gyazo.com/7c92abc005e35feb2482fff28cc1f16f.gif)](https://gyazo.com/7c92abc005e35feb2482fff28cc1f16f)
+[![Image from Gyazo](https://i.gyazo.com/57744334d218983346226ba9e7325539.gif)](https://gyazo.com/57744334d218983346226ba9e7325539)
 
 ### Line共有機能
 GIF：「Lineで送る」ボタンをクリックするとLineアプリが起動される様子
 
-[![Image from Gyazo](https://i.gyazo.com/9a7bd7c14347ea951582e51e862eeac1.gif)](https://gyazo.com/9a7bd7c14347ea951582e51e862eeac1)
+[![Image from Gyazo](https://i.gyazo.com/486b7a4b04c04755cecea3df0fc0fec5.gif)](https://gyazo.com/486b7a4b04c04755cecea3df0fc0fec5)
 
 ### 外部サイトへのアクセス
 GIF：URLをクリックすると食べログサイトに遷移する様子
 
-[![Image from Gyazo](https://i.gyazo.com/5d1b6d1cf0cea3ce65eac00c3ca3002f.gif)](https://gyazo.com/5d1b6d1cf0cea3ce65eac00c3ca3002f)
+[![Image from Gyazo](https://i.gyazo.com/a43b80b4a2c7af6728cfe66ad61cf49d.gif)](https://gyazo.com/a43b80b4a2c7af6728cfe66ad61cf49d)
 
 ### 電話機能
 GIF：電話番号をクリックすると電話アプリが起動する様子
 
-[![Image from Gyazo](https://i.gyazo.com/92c5a9eb83c3034fd8ea757d1af5627f.gif)](https://gyazo.com/92c5a9eb83c3034fd8ea757d1af5627f)
+[![Image from Gyazo](https://i.gyazo.com/4c4ea360a662b9e6a7ad29405db9f9d7.gif)](https://gyazo.com/4c4ea360a662b9e6a7ad29405db9f9d7)
 
 ### 店編集機能
 GIF：ログインユーザーが登録した店の詳細ページには「店情報を編集」「店情報を削除」メモ一覧が追加されている。「店情報を編集」をクリックし、必要事項を入力して更新に成功すると、変更内容が反映されている様子（非同期）
 
-[![Image from Gyazo](https://i.gyazo.com/0a762b0478f34d2755e9a259ae65b32e.gif)](https://gyazo.com/0a762b0478f34d2755e9a259ae65b32e)
+[![Image from Gyazo](https://i.gyazo.com/3685d5afa2311a2ae8d5a22138a7d11a.gif)](https://gyazo.com/3685d5afa2311a2ae8d5a22138a7d11a)
 
 ### 店削除機能
 GIF：「店情報を削除」をクリックすると、店が削除されマイページに遷移する様子。
 
-[![Image from Gyazo](https://i.gyazo.com/0cd272e480e6192cf958d0ec0e19deb9.gif)](https://gyazo.com/0cd272e480e6192cf958d0ec0e19deb9)
+[![Image from Gyazo](https://i.gyazo.com/9179ccd90638d14448d804f919f4c50f.gif)](https://gyazo.com/9179ccd90638d14448d804f919f4c50f)
 
 ### コメント機能
 GIF：フォームに入力し、送信ボタンをクリックすると一覧表示欄に追加される。削除ボタンを押すと一覧表示欄より削除される（非同期）
 
-[![Image from Gyazo](https://i.gyazo.com/d2e8c66c14e8562ee28bffd3877b203c.gif)](https://gyazo.com/d2e8c66c14e8562ee28bffd3877b203c)
+[![Image from Gyazo](https://i.gyazo.com/7f7e1503c37b5a55ac0611bd16dbef0c.gif)](https://gyazo.com/7f7e1503c37b5a55ac0611bd16dbef0c)
+
+### Googleマップ表示機能
+GIF：Googleマップにはページ内に表示されている店のピンが立っている。ピンをクリックすると店名が表示され、店名をクリックすると店詳細ページに遷移する様子。
+
+[![Image from Gyazo](https://i.gyazo.com/c7ff5d763e5b36e8c4beeb9324e0011b.gif)](https://gyazo.com/c7ff5d763e5b36e8c4beeb9324e0011b)
+
+### レスポンシブデザイン
+GIF：タブレット対応
+
+[![Image from Gyazo](https://i.gyazo.com/db69bb925aba965b0b95a859395e1137.gif)](https://gyazo.com/db69bb925aba965b0b95a859395e1137)
+
+GIF：スマートホン対応
+
+[![Image from Gyazo](https://i.gyazo.com/21c1dbb907d0d838758509a0bdbc703b.gif)](https://gyazo.com/21c1dbb907d0d838758509a0bdbc703b)
+
 
 # 実施予定の機能
 - フォローユーザーの中から特定のユーザー(複数)に絞って店を表示することができる機能
@@ -284,18 +308,23 @@ GIF：フォームに入力し、送信ボタンをクリックすると一覧�
 - フロントエンド
 
 &emsp; HTML, CSS, JavaScript, jQuery
+
 - バックエンド
 
 &emsp; Ruby on Rails(Ruby)
+
 - インフラ
 
-&emsp; Heroku(S3)
+&emsp; AWS(EC2, S3)
+
 - OS
 
 &emsp; Mac/Linux
+
 - データベース
 
 &emsp; MySQL/MariaDB
+
 - タスク管理
 
 &emsp; Github
