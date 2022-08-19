@@ -73,9 +73,7 @@ body {
   width: 850px;
   height: 450px;
   background-color: #FFFFFF;
-  opacity: 70%;
   position: relative;
-  padding: 0 25px;
 }
 .google-map {
   width: 500px;
@@ -265,16 +263,13 @@ body {
   width: 100%;
 }
 .map {
-  max-width: 85%;
+  width: 650px;
   height: 450px;
   background-color: #FFFFFF;
-  opacity: 70%;
   position: relative;
-  padding-right: 30px;
-  padding-left: 0;
 }
 .google-map {
-  max-width: 50%;
+  width: 500px;
   height: 400px;
   background: rgba(198, 245, 186, 0.76);
 }

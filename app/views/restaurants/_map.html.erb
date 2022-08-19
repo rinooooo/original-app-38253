@@ -1,5 +1,5 @@
 <div class="map">
-  <!--div class="map", id="map">
+  <div class="map", id="map">
     <script>
         let map
         function initMap(){
@@ -13,6 +13,7 @@
           });
 
           <% restaurants.each do |restaurant| %>
+          ( function() {
             var marker = new google.maps.Marker({
             position: {lat: <%= restaurant.performance.latitude %>, lng: <%= restaurant.performance.longitude %>},
             map: map
@@ -20,17 +21,18 @@
 
             var infowindow = new google.maps.InfoWindow({
             position: {lat: <%= restaurant.performance.latitude %>, lng: <%= restaurant.performance.longitude %>},
-            content: "<a href= <% restaurant_path(restaurant.id) %>% target='_blank'><%= restaurant.shop_name %></a>"
+            content: "<a href='<%= restaurant_path(restaurant.id) %>'><%= restaurant.shop_name %></a>"
             });
 
             marker.addListener("click", function(){
             infowindow.open(map, marker);
             });
+          } )();
           <% end %>
 
           geocoder = new google.maps.Geocoder()
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API'] %>&callback=initMap" async defer></script>
-  </div-->
+  </div>
 </div>
