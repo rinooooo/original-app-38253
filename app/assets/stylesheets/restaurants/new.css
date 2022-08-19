@@ -74,3 +74,69 @@
     border: solid 10px lightgrey;
   }
 }
+
+/* スマホ表示時 */
+@media (max-width: 960px) {
+  .restaurant-registration, .friend-registration {
+    width: 250px;
+    height: 500px;
+    background-color: #FFFFFF;
+    padding: 10px;
+    display: none;
+    position: fixed;
+    left: 50px;
+    top: 100px;
+    z-index: 100;
+    overflow: scroll;
+    border-radius: 10px;
+    border: solid 2px lightgrey;
+  }
+  .registration-btn, .edit-btn {
+    font-size: 10px;
+    font-weight: bold;
+    display: block;
+    background-color: navy;
+    border-radius: 10px;
+    width: 200px;
+    margin: 20px 0;
+    text-align: center;
+    color: #FFFFFF;
+  }
+  .form {
+    margin: 0 10px;
+    width: 250px;
+  }
+  .form textarea {
+    width: 200px;
+  }
+  .from_tabelog {
+    color: gray;
+  }
+  .new-back {
+    position: fixed;
+    margin-left: 200px;
+  }
+  .indispensable {
+    display: inline-block;
+    background-color: red;
+    width: 30px;
+    line-height: 10px;
+    text-align: center;
+    border-radius: 5px;
+    margin-left: 5px;
+    color: black;
+    font-size: 10px;
+  }
+  .self-input {
+    font-weight: bold;
+    font-size: 10px;
+  }
+  .weight-bold-text {
+    margin-top: 15px;
+    font-size: 10px;
+  }
+  .submit-btn {
+    margin-top: 15px;
+    font-size: 10px;
+  }
+}

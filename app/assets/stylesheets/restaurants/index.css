@@ -1,7 +1,7 @@
 /* wrapper */
 .wrapper {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: #EEEBEB;
   padding-bottom: 120px;
 }
@@ -58,9 +58,6 @@
 .tag {
   margin: 5px 0 10px 0;
 }
-#menu-btn-check {
-  display: none;
-}
 
 /* main */
 #main, .relationships-main {
@@ -109,6 +106,65 @@
   margin-right: 10px;
   font-weight: bold;
 }
+/* ハンバーガー */
+.menu-btn {
+  position: fixed;
+  top: 10px;
+  right: 70px;
+  display: flex;
+  height: 50px;
+  width: 50px;
+  justify-content: center;
+  align-items: center;
+  z-index: 90;
+  background-color: #FFAD32;
+}
+.menu-btn span,
+.menu-btn span:before,
+.menu-btn span:after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 25px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  position: absolute;
+}
+.menu-btn span:before {
+  bottom: 8px;
+}
+.menu-btn span:after {
+  top: 8px;
+}
+#menu-btn-check:checked ~ .menu-btn span {
+  background-color: rgba(255, 255, 255, 0);/*メニューオープン時は真ん中の線を透明にする*/
+}
+#menu-btn-check:checked ~ .menu-btn span::before {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+#menu-btn-check:checked ~ .menu-btn span::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+#menu-btn-check {
+  display: none;
+}
+.menu-content {
+  width: 300px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 80;
+  background-color: #FFAD32;
+  transition: all 0.5s;/*アニメーション設定*/
+  display: none;
+}
+#menu-btn-check:checked ~ .menu-content {
+  display: block;
+}
+
 
 /* restaurant */
 .restaurant-list {
@@ -171,20 +227,37 @@
   color: black; 
 }
 
-
+@media (min-width: 960px) {
+  .menu-btn {
+    display: none;
+  }
+}
 
 /* タブレット表示時 */
 @media (max-width: 960px) {
+body {
+  margin: 0;
+  background-color: #EEEBEB;
+}
+.wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: #EEEBEB;
+  padding-bottom: 120px;
+}
 .main-wrapper {
   width: 100%;
   padding: 0 30px;
   display: flex;
 }
+#sidebar {
+  display: none;
+}
 .sidebar {
-  width: 250px;
+  padding-left: 20px;
 }
 #main, .relationships-main {
-  width: calc(100% - 30px - 250px);
+  width: 100%;
 }
 .map {
   max-width: 85%;
@@ -206,51 +279,11 @@
 
 /* スマホ表示時 */
 @media (max-width: 520px) {
-  /* ハンバーガーメニュー */
-.menu-btn {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  display: flex;
-  height: 60px;
-  width: 60px;
-  justify-content: center;
-  align-items: center;
-  z-index: 90;
-  background-color: #3584bb;
+body {
+  margin: 0;
+  background-color: #EEEBEB;
 }
-.menu-btn span,
-.menu-btn span:before,
-.menu-btn span:after {
-  content: '';
-  display: block;
-  height: 3px;
-  width: 25px;
-  border-radius: 3px;
-  background-color: #ffffff;
-  position: absolute;
-}
-.menu-btn span:before {
-  bottom: 8px;
-}
-.menu-btn span:after {
-  top: 8px;
-}
-#menu-btn-check:checked ~ .menu-btn span {
-  background-color: rgba(255, 255, 255, 0);/*メニューオープン時は真ん中の線を透明にする*/
-}
-#menu-btn-check:checked ~ .menu-btn span::before {
-  bottom: 0;
-  transform: rotate(45deg);
-}
-#menu-btn-check:checked ~ .menu-btn span::after {
-  top: 0;
-  transform: rotate(-45deg);
-}
-#menu-btn-check {
-  display: none;
-}
-.sidebar {
+#sidebar {
   display: none;
 }
 .map {
@@ -265,12 +298,43 @@
   padding-bottom: 20px;
 }
 .main-wrapper {
-  width: 100vh;
+  width: 100%;
   height: 100vh;
   padding: 0 20px;
   display: flex;
 }
 
+/* middle */
+.middle {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+.select-box {
+  width: 80px;
+  height: 20px;
+}
+.select-box input {
+  font-size: 10px;
+}
+.tag-page-name {
+  font-size: 10px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+.menu-btn {
+  position: fixed;
+  top: 10px;
+  right: 40px;
+  display: flex;
+  height: 40px;
+  width: 40px;
+  justify-content: center;
+  align-items: center;
+  z-index: 90;
+  background-color: #FFAD32;
+}
 
 /* restaurant */
 .restaurant-list {
