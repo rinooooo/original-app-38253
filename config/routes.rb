@@ -2,8 +2,11 @@ Rails.application.routes.draw do
   get 'relationships/followings'
   get 'relationships/followers'
   devise_for :users
-  root to: "restaurants#index"
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+  end
 
+  root to: "restaurants#index"
   get '/restaurants/searchcategory',  to: 'restaurants#search_category'
   get '/relationships/searchcategory',  to: 'relationships#search_category'
 
