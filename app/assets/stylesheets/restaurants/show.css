@@ -39,7 +39,7 @@
   display: inline-block;
 }
 .show-map {
-  width: 300px;
+  width: 400px;
   height: 200px;
   background-color: aquamarine;
 }
@@ -140,6 +140,11 @@ table td {
     color: gray;
     border-bottom: solid 1px gray;
   }
+  .show-map {
+    width: 350px;
+    height: 200px;
+    background-color: aquamarine;
+  }
   .comment-comment {
     width: 400px;
     height: 30px;
@@ -210,7 +215,7 @@ table td {
     height: 100px;
   }
   .show-map {
-    width: 200px;
+    width: 160px;
     height: 100px;
     background-color: aquamarine;
   }
