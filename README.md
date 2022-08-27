@@ -127,20 +127,11 @@ GIF：店名をクリックすると店詳細ページに遷移する様子。�
 
 [![Image from Gyazo](https://i.gyazo.com/a43b80b4a2c7af6728cfe66ad61cf49d.gif)](https://gyazo.com/a43b80b4a2c7af6728cfe66ad61cf49d)
 
-### Line共有機能
-GIF：「Lineで送る」ボタンをクリックするとLineアプリが起動される様子。
-
-[![Image from Gyazo](https://i.gyazo.com/486b7a4b04c04755cecea3df0fc0fec5.gif)](https://gyazo.com/486b7a4b04c04755cecea3df0fc0fec5)
-
 ### 外部サイトへのアクセス
 GIF：URLをクリックすると食べログサイトに遷移する様子。
 
 [![Image from Gyazo](https://i.gyazo.com/d8b2d3f6d776468abd9d78d6c7887d23.gif)](https://gyazo.com/d8b2d3f6d776468abd9d78d6c7887d23)
 
-### 電話機能
-GIF：電話番号をクリックすると電話アプリが起動する様子。
-
-[![Image from Gyazo](https://i.gyazo.com/4c4ea360a662b9e6a7ad29405db9f9d7.gif)](https://gyazo.com/4c4ea360a662b9e6a7ad29405db9f9d7)
 
 ### 店編集機能
 GIF：ログインユーザーが登録した店の詳細ページには「店情報を編集」「店情報を削除」メモ一覧が追加されている。「店情報を編集」をクリックし、必要事項を入力して更新に成功すると、変更内容が反映されている様子（非同期）。
@@ -156,6 +147,16 @@ GIF：「店情報を削除」をクリックすると、店が削除されマ�
 GIF：フォームに入力し、送信ボタンをクリックすると一覧表示欄に追加される。削除ボタンを押すと一覧表示欄より削除される（非同期）。
 
 [![Image from Gyazo](https://i.gyazo.com/7f7e1503c37b5a55ac0611bd16dbef0c.gif)](https://gyazo.com/7f7e1503c37b5a55ac0611bd16dbef0c)
+
+### 電話機能
+GIF：電話番号をクリックすると電話アプリが起動する様子。
+
+[![Image from Gyazo](https://i.gyazo.com/4c4ea360a662b9e6a7ad29405db9f9d7.gif)](https://gyazo.com/4c4ea360a662b9e6a7ad29405db9f9d7)
+
+### Line共有機能
+GIF：「Lineで送る」ボタンをクリックするとLineアプリが起動される様子。
+
+[![Image from Gyazo](https://i.gyazo.com/486b7a4b04c04755cecea3df0fc0fec5.gif)](https://gyazo.com/486b7a4b04c04755cecea3df0fc0fec5)
 
 ### Googleマップ表示機能
 GIF：Googleマップにはページ内に表示されている店のピンが立っている。ピンをクリックすると店名が表示され、店名をクリックすると店詳細ページに遷移する様子。
