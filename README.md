@@ -21,9 +21,9 @@ http://3.114.188.138/
 
 | user     | email    | password     |
 | -------- | -------- | ------------ |
-| user1    | 1@test   | test1111     |
-| user2    | 2@test   | test2222     |
-| user3    | 3@test   | test3333     |
+| reina    | 1@test   | test1111     |
+| rino     | 2@test   | test2222     |
+| moe      | 3@test   | test3333     |
 
 # 利用方法
 自分が登録した店を管理するマイページと、友人と店を共有するシェアページを利用できます
