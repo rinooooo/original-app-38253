@@ -169,7 +169,7 @@ GIF：タブレット対応
 
 [![Image from Gyazo](https://i.gyazo.com/db69bb925aba965b0b95a859395e1137.gif)](https://gyazo.com/db69bb925aba965b0b95a859395e1137)
 
-GIF：スマートホン対応
+GIF：スマートフォン対応
 
 [![Image from Gyazo](https://i.gyazo.com/21c1dbb907d0d838758509a0bdbc703b.gif)](https://gyazo.com/21c1dbb907d0d838758509a0bdbc703b)
 
